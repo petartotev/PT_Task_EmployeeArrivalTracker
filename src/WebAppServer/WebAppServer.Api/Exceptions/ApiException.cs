@@ -1,13 +1,12 @@
-﻿namespace WebAppServer.Api.Exceptions
-{
-    public class ApiException : Exception
-    {
-        public ApiException(int statusCode, string errorMessage)
-            : base(errorMessage)
-        {
-            StatusCode = statusCode;
-        }
+﻿namespace WebAppServer.Api.Exceptions;
 
-        public int StatusCode { get; set; }
+public class ApiException : Exception
+{
+    public ApiException(int statusCode, string errorMessage)
+        : base(errorMessage)
+    {
+        StatusCode = statusCode;
     }
+
+    public int StatusCode { get; set; }
 }

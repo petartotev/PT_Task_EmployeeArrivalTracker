@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!--<Nullable>enable</Nullable>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebAppServer.Common\WebAppServer.Common.csproj" />
+    <ProjectReference Include="..\WebAppServer.Repository\WebAppServer.Repository.csproj" />
+    <ProjectReference Include="..\WebAppServer.V1.Contracts\WebAppServer.V1.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire.Core" Version="1.7.30" />
+  </ItemGroup>
+
+</Project>

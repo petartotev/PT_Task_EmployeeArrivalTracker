@@ -1,7 +1,22 @@
 # 'Employee Arrival Tracker' Coding Exercise
------------
 
+## Solution Contents
 
+- res
+    - Postman - a collection of requests + variables for both WebAppServer and WebService applications.
+    - Comments - comments on the project.
+- src
+    - **webappclient** - a new FE React app which gathers information from WebAppServer and visualizes it in a table.
+    - **WebAppServer** - a new BE .NET Web API app which subscribes to WebService, receives reports and stores information in a database.
+    - **WebService** - an existing "3rd party" solution which periodically sends information to its subscriber WebAppServer.
+
+## Comments
+
+WebService seems to be an external service, so I decided to introduce a new, separate solution for the WebApplication server.
+
+---
+
+## Requirements
 
 As a team we are in charge of a new development for the company:
 

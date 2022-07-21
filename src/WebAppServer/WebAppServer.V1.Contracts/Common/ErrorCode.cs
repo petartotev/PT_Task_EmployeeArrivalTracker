@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace WebAppServer.V1.Contracts.Common;
 
-namespace WebAppServer.V1.Contracts.Common
+public class ErrorCode
 {
-    public class ErrorCode
-    {
-        public const string BadRequest = nameof(BadRequest);
-        public const string UnexpectedError = nameof(UnexpectedError);
-    }
+    public const string BadRequest = nameof(BadRequest);
+    public const string UnexpectedError = nameof(UnexpectedError);
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Flurl.Http;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -7,8 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Flurl.Http;
-using Newtonsoft.Json;
 using WebService.Models;
 
 namespace WebService.Controllers
@@ -33,9 +33,9 @@ namespace WebService.Controllers
             };
 
             new Simulator(newClient).Simulate(DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.CurrentCulture));
-            return Ok(new { newClient.Token, Expires = DateTime.UtcNow.AddHours(8).ToString("u").Replace(" ","T") });
+            return Ok(new { newClient.Token, Expires = DateTime.UtcNow.AddHours(8).ToString("u").Replace(" ", "T") });
         }
-        
+
 
     }
 

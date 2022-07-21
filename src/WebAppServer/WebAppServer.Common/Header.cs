@@ -1,7 +1,6 @@
-﻿namespace WebAppServer.Common
+﻿namespace WebAppServer.Common;
+
+public class Header
 {
-    public class Header
-    {
-        public const string FourthToken = "X-Fourth-Token";
-    }
+    public const string FourthToken = "X-Fourth-Token";
 }

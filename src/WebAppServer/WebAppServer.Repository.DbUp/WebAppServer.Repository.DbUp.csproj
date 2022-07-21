@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\migration_00000000000000.sql" />
+    <None Remove="Scripts\migration_20220720103000.sql" />
+    <None Remove="Scripts\migration_20220720120000.sql" />
+    <None Remove="Scripts\migration_20220720123000.sql" />
+    <None Remove="Scripts\migration_20220720130000.sql" />
+    <None Remove="Scripts\migration_20220720133000.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\migration_20220720133000.sql" />
+    <EmbeddedResource Include="Scripts\migration_20220720130000.sql" />
+    <EmbeddedResource Include="Scripts\migration_20220720123000.sql" />
+    <EmbeddedResource Include="Scripts\migration_20220720120000.sql" />
+    <EmbeddedResource Include="Scripts\migration_20220720103000.sql" />
+    <EmbeddedResource Include="Scripts\migration_00000000000000.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup-sqlserver" Version="4.6.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebAppServer.Common\WebAppServer.Common.csproj" />
+  </ItemGroup>
+
+</Project>

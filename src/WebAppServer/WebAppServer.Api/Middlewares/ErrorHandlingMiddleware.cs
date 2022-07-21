@@ -3,58 +3,57 @@ using System.Net;
 using WebAppServer.Api.Exceptions;
 using WebAppServer.V1.Contracts.Common;
 
-namespace WebAppServer.Api.Middlewares
+namespace WebAppServer.Api.Middlewares;
+
+public class ErrorHandlingMiddleware
 {
-    public class ErrorHandlingMiddleware
+    private readonly RequestDelegate _next;
+
+    public ErrorHandlingMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next;
+        _next = next;
+    }
 
-        public ErrorHandlingMiddleware(RequestDelegate next)
+    public async Task InvokeAsync(HttpContext context)
+    {
+        try
         {
-            _next = next;
+            await _next(context);
+        }
+        catch (Exception ex)
+        {
+            await HandleExceptionAsync(context, ex);
+        }
+    }
+
+    private static async Task HandleExceptionAsync(HttpContext context, Exception ex)
+    {
+        var httpStatusCode = HttpStatusCode.InternalServerError;
+        var errorCode = ErrorCode.UnexpectedError;
+        var errorMessage = ex.Message;
+
+        var innerException = ex.InnerException;
+
+        while (innerException != null)
+        {
+            errorMessage += " " + innerException.Message;
+            innerException = innerException.InnerException;
         }
 
-        public async Task InvokeAsync(HttpContext context)
+        if (ex is ApiException apiException)
         {
-            try
+            httpStatusCode = (HttpStatusCode)apiException.StatusCode;
+
+            if (ex is WebAppApiException webAppApiException)
             {
-                await _next(context);
-            }
-            catch (Exception ex)
-            {
-                await HandleExceptionAsync(context, ex);
+                errorCode = webAppApiException.ErrorCode;
             }
         }
 
-        private static async Task HandleExceptionAsync(HttpContext context, Exception ex)
-        {
-            var httpStatusCode = HttpStatusCode.InternalServerError;
-            var errorCode = ErrorCode.UnexpectedError;
-            var errorMessage = ex.Message;
+        var errors = new List<Error> { new Error(errorCode, errorMessage) };
 
-            var innerException = ex.InnerException;
+        context.Response.StatusCode = (int)httpStatusCode;
 
-            while (innerException != null)
-            {
-                errorMessage += " " + innerException.Message;
-                innerException = innerException.InnerException;
-            }
-
-            if (ex is ApiException apiException)
-            {
-                httpStatusCode = (HttpStatusCode)apiException.StatusCode;
-
-                if (ex is WebAppApiException webAppApiException)
-                {
-                    errorCode = webAppApiException.ErrorCode;
-                }
-            }
-
-            var errors = new List<Error> { new Error(errorCode, errorMessage) };
-
-            context.Response.StatusCode = (int)httpStatusCode;
-
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(errors));
-        }
+        await context.Response.WriteAsync(JsonConvert.SerializeObject(errors));
     }
 }

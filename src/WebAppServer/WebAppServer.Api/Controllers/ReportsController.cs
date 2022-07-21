@@ -20,9 +20,7 @@ public class ReportsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateReports([FromBody] IEnumerable<ReportContract> request)
     {            
-        var tokenFromHeader = Request.Headers["X-Fourth-Token"];
-
-        if (!_subscriptionHandler.ValidateToken(tokenFromHeader))
+        if (!_subscriptionHandler.ValidateToken(Request.Headers["X-Fourth-Token"]))
         {
             return Unauthorized();
         }

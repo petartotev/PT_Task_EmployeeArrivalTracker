@@ -7,9 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.30" />
-    <PackageReference Include="Hangfire.Core" Version="1.7.30" />
-    <PackageReference Include="Hangfire.SqlServer" Version="1.7.30" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
@@ -17,10 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebAppServer.Autofac\WebAppServer.Autofac.csproj" />
-    <ProjectReference Include="..\WebAppServer.Common\WebAppServer.Common.csproj" />
-    <ProjectReference Include="..\WebAppServer.Domain\WebAppServer.Domain.csproj" />
-    <ProjectReference Include="..\WebAppServer.Repository.Seeder\WebAppServer.Repository.Seeder.csproj" />
-    <ProjectReference Include="..\WebAppServer.Repository\WebAppServer.Repository.csproj" />
     <ProjectReference Include="..\WebAppServer.V1.Contracts\WebAppServer.V1.Contracts.csproj" />
   </ItemGroup>
 

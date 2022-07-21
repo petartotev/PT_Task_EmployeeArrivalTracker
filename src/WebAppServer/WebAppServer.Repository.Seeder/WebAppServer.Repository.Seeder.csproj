@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebAppServer.Repository\WebAppServer.Repository.csproj" />
+    <ProjectReference Include="..\WebAppServer.Repository.DbUp\WebAppServer.Repository.DbUp.csproj" />
   </ItemGroup>
 
 </Project>

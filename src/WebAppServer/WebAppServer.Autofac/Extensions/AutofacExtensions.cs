@@ -3,7 +3,7 @@ using Autofac;
 using Autofac.Builder;
 using Autofac.Features.Scanning;
 
-namespace WebAppServer.Common.Extensions;
+namespace WebAppServer.Autofac.Extensions;
 
 public static class AutofacExtensions
 {

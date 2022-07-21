@@ -1,12 +1,16 @@
 ﻿using Autofac;
+using WebAppServer.Autofac.Extensions;
 using WebAppServer.Common.Configuration;
 using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Domain;
+using WebAppServer.Domain.Services;
+using WebAppServer.Domain.Services.Interfaces;
 using WebAppServer.Repository;
 using WebAppServer.Repository.DbUp;
 using WebAppServer.Repository.DbUp.Interfaces;
 using WebAppServer.Repository.Seeder;
 using WebAppServer.Repository.Seeder.Interfaces;
+using Module = Autofac.Module;
 
 namespace WebAppServer.Autofac.Modules;
 
@@ -16,8 +20,13 @@ public class AutofacCommonModule : Module
     {
         RegisterDatabase(builder);
 
-        builder.AddRepository();
-        builder.AddDomain();
+        builder.RegisterTypesEndingWith(typeof(RepositoryConfig).Assembly, "Repository").AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterTypesEndingWith(typeof(DomainConfig).Assembly, "Service").AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterTypesEndingWith(typeof(DomainConfig).Assembly, "Mapper").AsImplementedInterfaces().InstancePerLifetimeScope();
+
+        builder.RegisterType<SubscriptionHandler>().As<ISubscriptionHandler>().SingleInstance();
+
+        return;
     }
 
     private static void RegisterDatabase(ContainerBuilder builder)

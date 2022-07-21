@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebAppServer.Common\WebAppServer.Common.csproj" />
+    <ProjectReference Include="..\WebAppServer.Repository\WebAppServer.Repository.csproj" />
   </ItemGroup>
 
 </Project>

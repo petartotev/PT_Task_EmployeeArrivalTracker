@@ -1,0 +1,12 @@
+footer {
+    position:fixed;
+    left:0;
+    bottom:0;
+    right:0;
+  }
+
+.footer-subtitle {
+    font-style: italic;
+    font-size: x-large;
+    color: coral;
+}

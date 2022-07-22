@@ -17,4 +17,8 @@
     <ProjectReference Include="..\WebAppServer.V1.Contracts\WebAppServer.V1.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Mappers\" />
+  </ItemGroup>
+
 </Project>

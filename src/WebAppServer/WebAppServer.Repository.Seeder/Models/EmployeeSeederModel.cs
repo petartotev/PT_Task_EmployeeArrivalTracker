@@ -1,6 +1,6 @@
 ﻿namespace WebAppServer.Repository.Seeder.Models;
 
-public class Employee
+public class EmployeeSeederModel
 {
     public int Id { get; set; }
 

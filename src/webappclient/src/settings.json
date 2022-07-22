@@ -1,0 +1,4 @@
+{
+    "webserver_url": "https://localhost:7168/api/",
+    "webserver_url_arrivals": "https://localhost:7168/api/arrivals"
+}

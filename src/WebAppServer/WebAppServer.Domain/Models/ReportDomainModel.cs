@@ -1,6 +1,6 @@
-﻿namespace WebAppServer.Domain.Services.Models;
+﻿namespace WebAppServer.Domain.Models;
 
-public class ReportServiceModel
+public class ReportDomainModel
 {
     public int EmployeeId { get; set; }
 

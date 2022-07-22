@@ -16,7 +16,7 @@ public class EnvironmentSettings : IDbSettings
     {
         get
         {
-            return $"http://localhost:51396/api/clients/subscribe?date={DateTime.Now.ToString("yyyy-MM-dd")}&callback=https://localhost:7168/reports";
+            return $"http://localhost:51396/api/clients/subscribe?date={DateTime.Now.ToString("yyyy-MM-dd")}&callback=https://localhost:7168/api/reports";
         }
     }
 }

@@ -1,10 +1,15 @@
-﻿namespace WebAppServer.Entities;
+﻿using Dapperer;
 
-public class ArrivalEntity
+namespace WebAppServer.Entities;
+
+[Table("Arrivals")]
+public class ArrivalEntity : BaseEntity
 {
-    public int Id { get; set; }
+    [Column("DateArrival")]
+    public DateTime DateArrival { get; set; }
 
+    [Column("EmployeeId")]
     public int EmployeeId { get; set; }
 
-    public DateTime DateArrival { get; set; }
+    public EmployeeEntity Employee { get; set; }
 }

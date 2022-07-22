@@ -1,10 +1,13 @@
-﻿namespace WebAppServer.Entities;
+﻿using Dapperer;
 
-public class TeamsEmployeesEntity
+namespace WebAppServer.Entities;
+
+[Table("TeamsEmployees")]
+public class TeamsEmployeesEntity : BaseEntity
 {
-    public int Id { get; set; }
-
+    [Column("TeamId")]
     public int TeamId { get; set; }
 
+    [Column("EmployeeId")]
     public int EmployeeId { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿using Hangfire;
 using Newtonsoft.Json;
+using Serilog;
 using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Domain.Models;
 using WebAppServer.Domain.Services.Interfaces;
@@ -22,7 +23,15 @@ public class SubscriptionHandler : ISubscriptionHandler
 
     public async Task SubscribeAsync(string callbackUrl)
     {
-        await SubscribeToWebServiceAsync(callbackUrl);
+        try
+        {
+            await SubscribeToWebServiceAsync(callbackUrl);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex.Message);
+            Log.Error("WebService is probably off.");
+        }
 
         BackgroundJob.Schedule(() => AddDailyJob(callbackUrl), DateTime.Today.AddDays(1).AddMinutes(5));
     }

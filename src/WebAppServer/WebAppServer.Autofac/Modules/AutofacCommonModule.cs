@@ -1,4 +1,7 @@
 ﻿using Autofac;
+using Dapperer;
+using Dapperer.DbFactories;
+using Dapperer.QueryBuilders.MsSql;
 using WebAppServer.Autofac.Extensions;
 using WebAppServer.Common.Configuration;
 using WebAppServer.Common.Configuration.Interfaces;
@@ -34,5 +37,9 @@ public class AutofacCommonModule : Module
         builder.RegisterType<EnvironmentSettings>().As<IDbSettings>().SingleInstance();
         builder.RegisterType<DatabaseUpgrader>().As<IDatabaseUpgrader>().SingleInstance();
         builder.RegisterType<DatabaseSeeder>().As<IDatabaseSeeder>().SingleInstance();
+
+        builder.RegisterType<SqlQueryBuilder>().As<IQueryBuilder>();
+        builder.RegisterType<SqlDbFactory>().As<IDbFactory>();
+        builder.RegisterType<DappererSettings>().As<IDappererSettings>();
     }
 }

@@ -7,7 +7,7 @@ using WebAppServer.V1.Contracts.Common;
 
 namespace WebAppServer.Api.Filters;
 
-public class FourthTokenHeaderRequiredFilter : ActionFilterAttribute
+public class FourthTokenHeaderRequiredFilterAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {

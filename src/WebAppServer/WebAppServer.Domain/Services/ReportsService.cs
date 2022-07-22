@@ -1,5 +1,5 @@
 ﻿using WebAppServer.Domain.Services.Interfaces;
-using WebAppServer.Domain.Services.Mappers.Interfaces;
+using WebAppServer.Domain.Mappers.Interfaces;
 using WebAppServer.Repository.Interfaces;
 using WebAppServer.V1.Contracts;
 
@@ -20,9 +20,9 @@ public class ReportsService : IReportsService
     {
         var model = _mapper.Map(request);
 
+        // TODO: Bulk insert instead of foreach!
         foreach (var report in request)
         {
-            // TODO: increment employeeId by 1.
             await _arrivalRepository.CreateAsync(report.EmployeeId, report.When);
         }
     }

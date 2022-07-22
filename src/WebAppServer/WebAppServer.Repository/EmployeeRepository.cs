@@ -21,15 +21,13 @@ public class EmployeeRepository : IEmployeeRepository
     public async Task<int> CreateAsync(int id, string firstName, string lastName, string email, int age, string role, int? managerId)
     {
         var emailSplit = email.Split("@");
-        var uniqueEmail = emailSplit[0] + $"{id + 1}@" + emailSplit[1];
+        var uniqueEmail = emailSplit[0] + $"{id}@" + emailSplit[1];
 
         var sql = managerId != null
-            ? $"INSERT INTO [dbo].[Employees] " +
-            $"([FirstName], [LastName], [Email], [DateBirth], [RoleId], [ManagerId]) VALUES(" +
-            $"N'{firstName}', N'{lastName}', N'{uniqueEmail}', '{DateTime.Now.AddYears(-age)}', {(await _roleRepository.GetByNameAsync(role)).Id}, {managerId + 1})"
-            : $"INSERT INTO [dbo].[Employees] " +
-            $"([FirstName], [LastName], [Email], [DateBirth], [RoleId]) VALUES(" +
-            $"N'{firstName}', N'{lastName}', N'{uniqueEmail}', '{DateTime.Now.AddYears(-age)}', {(await _roleRepository.GetByNameAsync(role)).Id})";
+            ? $"INSERT INTO [dbo].[Employees] ([FirstName], [LastName], [Email], [DateBirth], [RoleId], [ManagerId]) VALUES(" +
+              $"N'{firstName}', N'{lastName}', N'{uniqueEmail}', '{DateTime.Now.AddYears(-age)}', {(await _roleRepository.GetByNameAsync(role)).Id}, {managerId})"
+            : $"INSERT INTO [dbo].[Employees] ([FirstName], [LastName], [Email], [DateBirth], [RoleId]) VALUES(" +
+              $"N'{firstName}', N'{lastName}', N'{uniqueEmail}', '{DateTime.Now.AddYears(-age)}', {(await _roleRepository.GetByNameAsync(role)).Id})";
 
         using (var connection = new SqlConnection(_settings.ConnectionString))
         {

@@ -1,8 +1,12 @@
-﻿namespace WebAppServer.Entities;
+﻿using Dapperer;
 
-public class RoleEntity
+namespace WebAppServer.Entities;
+
+[Table("Roles")]
+public class RoleEntity : BaseEntity
 {
-    public int Id { get; set; }
-
+    [Column("Name")]
     public string Name { get; set; }
+
+    public IList<EmployeeEntity> Employees { get; set; }
 }

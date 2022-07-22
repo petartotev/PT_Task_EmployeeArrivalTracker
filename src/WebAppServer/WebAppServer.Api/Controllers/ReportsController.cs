@@ -11,19 +11,19 @@ namespace WebAppServer.Api.Controllers;
 public class ReportsController : ControllerBase
 {
     private readonly IReportsService _reportsService;
-    private readonly ISubscriptionHandler _subscriptionHandler;
+    private readonly ISubscriptionHandler _subscriptionService;
 
-    public ReportsController(IReportsService reportsService, ISubscriptionHandler subscriptionHandler)
+    public ReportsController(IReportsService reportsService, ISubscriptionHandler subscriptionService)
     {
         _reportsService = reportsService;
-        _subscriptionHandler = subscriptionHandler;
+        _subscriptionService = subscriptionService;
     }
 
     [HttpPost]
     [FourthTokenHeaderRequiredFilter]
     public async Task<IActionResult> CreateReports([FromBody] IEnumerable<ReportContract> request)
     {            
-        if (!_subscriptionHandler.ValidateToken(Request.Headers[Header.FourthToken]))
+        if (!_subscriptionService.ValidateIncomingToken(Request.Headers[Header.WebAppServer.FourthToken]))
         {
             return Unauthorized();
         }

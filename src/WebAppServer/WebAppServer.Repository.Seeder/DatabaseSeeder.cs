@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using WebAppServer.Common.Constants;
 using WebAppServer.Repository.Interfaces;
 using WebAppServer.Repository.Seeder.Interfaces;
 using WebAppServer.Repository.Seeder.Models;
@@ -7,7 +8,7 @@ namespace WebAppServer.Repository.Seeder;
 
 public class DatabaseSeeder : IDatabaseSeeder
 {
-    private readonly Random _random = new ();
+    private readonly Random _random = new();
     private readonly IRoleRepository _roleRepository;
     private readonly ITeamRepository _teamRepository;
     private readonly IEmployeeRepository _employeeRepository;
@@ -42,47 +43,47 @@ public class DatabaseSeeder : IDatabaseSeeder
 
     private async Task SeedRolesAsync(IEnumerable<string> roles)
     {
-        Log.Information("Seeds roles...");
+        Log.Information(LoggerMessages.Database.Seeder.SeedingRoles);
 
         foreach (var role in roles)
         {
             await _roleRepository.CreateAsync(role);
-            Thread.Sleep(1);
         };
     }
 
     private async Task SeedTeamsAsync(IEnumerable<string> teams)
     {
-        Log.Information("Seeds teams...");
+        Log.Information(LoggerMessages.Database.Seeder.SeedingTeams);
 
         foreach (var team in teams)
         {
             await _teamRepository.CreateAsync(team);
-            Thread.Sleep(1);
         };
     }
 
     private async Task SeedEmployeesAsync(IEnumerable<EmployeeSeederModel> employees)
     {
-        Log.Information("Seeds employees. It can take a few minutes...");
+        Log.Warning(LoggerMessages.Database.Seeder.SeedingEmployees);
 
-        int limit = 0;
+        int seedStopper = 0;
 
         foreach (var employee in employees)
         {
             // N.B. In the data json file Ids start from 0. The database tables identity starts from 1, so we increment here.
+            // N.B. In the file there are idential emails for different employees. These emails are concatenated with id here in order to be unique.
             var employeeId = employee.Id + 1;
             var managerId = employee.ManagerId == null ? employee.ManagerId : employee.ManagerId + 1;
+            var emailSplit = employee.Email.Split("@");
+            var uniqueEmail = (emailSplit != null && emailSplit.Length == 2) ? (emailSplit[0] + $"{employee.Id}@" + emailSplit[1]) : employee.Id + "@.mail.com";
 
-            limit++;
+            seedStopper++;
 
             var employeeDbEntityId = await _employeeRepository
                 .CreateAsync(employeeId, employee.Name, employee.SurName, employee.Email, employee.Age, employee.Role, managerId);
-            Thread.Sleep(1);
 
             await SeedTeamsEmployeesPerEmployeeAsync(employeeDbEntityId, employee.Teams.Distinct());
 
-            if (limit < 501)
+            if (seedStopper < 301)
             {
                 await SeedArrivalsInTheLastDaysPerEmployeeAsync(employeeDbEntityId);
             }
@@ -94,7 +95,6 @@ public class DatabaseSeeder : IDatabaseSeeder
         foreach (var team in teams)
         {
             await _teamEmployeeRepository.CreateAsync(employeeId, team);
-            Thread.Sleep(1);
         }
     }
 
@@ -109,7 +109,7 @@ public class DatabaseSeeder : IDatabaseSeeder
 
     private async Task<bool> IsDatabaseEmptyAsync()
     {
-        return 
+        return
             await _teamEmployeeRepository.GetCountAsync() == 0 &&
             await _employeeRepository.GetCountAsync() == 0 &&
             await _teamRepository.GetCountAsync() == 0 &&

@@ -8,6 +8,7 @@
     - **WebAppServer** - a new BE .NET Web API app which subscribes to WebService, receives reports and stores them in a database.
         - https://localhost:7168
     - **webappclient** - a new FE React app which gathers information from WebAppServer and visualizes it in an interactive table.
+        - http://localhost:3000
 - res
     - Postman - a collection of requests + variables for both WebAppServer and WebService applications.
     - Comments - comments on the project.

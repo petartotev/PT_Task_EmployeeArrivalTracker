@@ -1,7 +1,8 @@
-﻿using Dapper;
+﻿using System.Data.SqlClient;
+using Dapper;
 using Serilog;
-using System.Data.SqlClient;
 using WebAppServer.Common.Configuration.Interfaces;
+using WebAppServer.Common.Constants;
 using WebAppServer.Entities;
 using WebAppServer.Repository.Interfaces;
 
@@ -20,19 +21,17 @@ public class RoleRepository : IRoleRepository
     {
         var sql = $"INSERT INTO [dbo].[Roles] ([Name]) VALUES(N'{name}')";
 
-        var entityWithTheSameName = await GetByNameAsync(name);
-
-        if (entityWithTheSameName is null)
+        if (await GetByNameAsync(name) is null)
         {
             using (var connection = new SqlConnection(_settings.ConnectionString))
             {
                 try
                 {
-                    int rowsAffected = await connection.ExecuteAsync(sql);
+                    await connection.ExecuteAsync(sql);
                 }
                 catch (Exception ex)
                 {
-                    Log.Error($"Could not create role '{name}'. {ex.Message}");
+                    Log.Error(string.Format(LoggerMessages.Database.FailedToCreateEntity, nameof(RoleEntity)) + " " + ex.Message);
                 }
             }
         }

@@ -1,5 +1,4 @@
 ﻿using WebAppServer.Domain.Services.Interfaces;
-using WebAppServer.Domain.Mappers.Interfaces;
 using WebAppServer.Repository.Interfaces;
 using WebAppServer.V1.Contracts;
 
@@ -8,18 +7,14 @@ namespace WebAppServer.Domain.Services;
 public class ReportsService : IReportsService
 {
     private readonly IArrivalRepository _arrivalRepository;
-    private readonly IReportMapper _mapper;
 
-    public ReportsService(IArrivalRepository arrivalRepository, IReportMapper mapper)
+    public ReportsService(IArrivalRepository arrivalRepository)
     {
         _arrivalRepository = arrivalRepository;
-        _mapper = mapper;
     }
 
     public async Task CreateReportsAsync(IEnumerable<ReportContract> request)
     {
-        var model = _mapper.Map(request);
-
         // TODO: Bulk insert instead of foreach!
         foreach (var report in request)
         {

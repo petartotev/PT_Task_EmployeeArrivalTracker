@@ -1,6 +1,6 @@
-﻿using Dapper;
+﻿using System.Data.SqlClient;
+using Dapper;
 using Serilog;
-using System.Data.SqlClient;
 using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Entities;
 using WebAppServer.Repository.Interfaces;
@@ -26,7 +26,7 @@ public class TeamEmployeeRepository : ITeamEmployeeRepository
         {
             try
             {
-                int rowsAffected = await connection.ExecuteAsync(sql);
+                await connection.ExecuteAsync(sql);
             }
             catch (Exception ex)
             {

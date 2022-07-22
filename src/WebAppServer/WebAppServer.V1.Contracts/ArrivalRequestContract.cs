@@ -6,5 +6,5 @@ public class ArrivalRequestContract : PageableRequestContract
 
     public DateTime? ToDate { get; set; }
 
-    public string? Order { get; set; }
+    public string Order { get; set; }
 }

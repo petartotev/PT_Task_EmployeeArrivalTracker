@@ -10,6 +10,5 @@ public class ArrivalEntity : BaseEntity
 
     [Column("EmployeeId")]
     public int EmployeeId { get; set; }
-
     public EmployeeEntity Employee { get; set; }
 }

@@ -14,7 +14,7 @@ public class ArrivalsService : IArrivalsService
         _arrivalRepository = arrivalRepository;
     }
 
-    public async Task<Page<ArrivalContract>> GetArrivalsAsync(ArrivalRequestContract requestContract)
+    public async Task<Page<ArrivalResponseContract>> GetArrivalsAsync(ArrivalRequestContract requestContract)
     {
         var requestDomain = requestContract.ToDomainModel();
 
@@ -25,7 +25,7 @@ public class ArrivalsService : IArrivalsService
             requestDomain.Skip,
             requestDomain.Take);
 
-        return new Page<ArrivalContract>
+        return new Page<ArrivalResponseContract>
         {
             CurrentPage = result.CurrentPage,
             ItemsPerPage = result.ItemsPerPage,

@@ -12,7 +12,7 @@ const Pagination = (props) => {
     }
 
     function isEdgeConditionNextButton() {
-        return props.page.totalPages <= 1 || props.page.currentPage + 1 >= props.page.totalPages;
+        return props.page.totalPages <= 1 || props.page.currentPage + 1 > props.page.totalPages;
     }
 
     function isEdgeConditionLastButton() {

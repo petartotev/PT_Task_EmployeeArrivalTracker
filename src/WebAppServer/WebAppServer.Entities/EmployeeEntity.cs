@@ -19,12 +19,10 @@ public class EmployeeEntity : BaseEntity
 
     [Column("ManagerId")]
     public int? ManagerId { get; set; }
-
     public EmployeeEntity Manager { get; set; }
 
     [Column("RoleId")]
     public int RoleId { get; set; }
-
     public RoleEntity Role { get; set; }
 
     public IList<TeamEntity> Teams { get; set; }

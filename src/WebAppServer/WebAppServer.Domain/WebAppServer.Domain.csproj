@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\Mappers\**" />
+    <EmbeddedResource Remove="Services\Mappers\**" />
+    <None Remove="Services\Mappers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Hangfire.AspNetCore" Version="1.7.30" />
     <PackageReference Include="Hangfire.Core" Version="1.7.30" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.7.30" />
@@ -15,10 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\WebAppServer.Repository\WebAppServer.Repository.csproj" />
     <ProjectReference Include="..\WebAppServer.V1.Contracts\WebAppServer.V1.Contracts.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\Mappers\" />
   </ItemGroup>
 
 </Project>

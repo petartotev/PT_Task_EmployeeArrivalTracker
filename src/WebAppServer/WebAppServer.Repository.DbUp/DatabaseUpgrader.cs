@@ -1,7 +1,8 @@
-﻿using DbUp;
+﻿using System.Reflection;
+using DbUp;
 using Serilog;
-using System.Reflection;
 using WebAppServer.Common.Configuration.Interfaces;
+using WebAppServer.Common.Constants;
 using WebAppServer.Repository.DbUp.Interfaces;
 
 namespace WebAppServer.Repository.DbUp;
@@ -35,9 +36,10 @@ public class DatabaseUpgrader : IDatabaseUpgrader
             return -1;
         }
 
-        var areAnyScriptsExecuted = result.Scripts.Any();
-        Log.Information(areAnyScriptsExecuted ? "Database upgraded successfully!" : "Database is up-to-date.");
-        
+        Log.Information(result.Scripts.Any()
+            ? LoggerMessages.Database.Seeder.SeedSuccessful
+            : LoggerMessages.Database.Seeder.DbUpToDate);
+
         return 0;
     }
 }

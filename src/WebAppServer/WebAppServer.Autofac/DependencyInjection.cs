@@ -7,6 +7,7 @@ public static class DependencyInjection
 {
     public static ContainerBuilder ConfigureHost(this ContainerBuilder builder)
     {
+        builder.RegisterModule<AutofacDatabaseModule>();
         builder.RegisterModule<AutofacCommonModule>();
 
         return builder;

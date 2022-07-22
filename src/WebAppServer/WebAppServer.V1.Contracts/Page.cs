@@ -3,7 +3,8 @@
 public class Page<TModel>
 {
     public Page()
-    { }
+    {
+    }
 
     public Page(IEnumerable<TModel> items, int totalItems, int skip, int take)
     {

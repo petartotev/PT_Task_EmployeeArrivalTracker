@@ -6,9 +6,9 @@ namespace WebAppServer.Domain.Mappers;
 
 public static class ArrivalMapper
 {
-    public static ArrivalContract ToContract(this ArrivalDomainModel arrivalDomainModel)
+    public static ArrivalResponseContract ToContract(this ArrivalDomainModel arrivalDomainModel)
     {
-        return new ArrivalContract
+        return new ArrivalResponseContract
         {
             Id = arrivalDomainModel.Id,
             DateArrival = arrivalDomainModel.DateArrival,
@@ -26,7 +26,7 @@ public static class ArrivalMapper
         };
     }
 
-    public static ArrivalDomainModel ToDomainModel(this ArrivalContract arrivalContract)
+    public static ArrivalDomainModel ToDomainModel(this ArrivalResponseContract arrivalContract)
     {
         return new ArrivalDomainModel
         {

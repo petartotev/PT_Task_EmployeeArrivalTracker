@@ -1,9 +1,10 @@
-﻿using Dapper;
+﻿using System.Data;
+using System.Data.SqlClient;
+using Dapper;
 using Dapperer;
 using Serilog;
-using System.Data;
-using System.Data.SqlClient;
 using WebAppServer.Common.Configuration.Interfaces;
+using WebAppServer.Common.Constants;
 using WebAppServer.Entities;
 using WebAppServer.Repository.Interfaces;
 
@@ -11,56 +12,36 @@ namespace WebAppServer.Repository;
 
 public class ArrivalRepository : Repository<ArrivalEntity, int>, IArrivalRepository
 {
-    private readonly IQueryBuilder _queryBuilder;
-    private readonly IDbFactory _dbFactory;
     private readonly IDbSettings _dbSettings;
-    private readonly IEmployeeRepository _employeeRepo;
-    private readonly IRoleRepository _roleRepo;
 
-    public ArrivalRepository(
-        IQueryBuilder queryBuilder,
-        IDbFactory dbFactory,
-        IDbSettings dbSettings,
-        IEmployeeRepository employeeRepo,
-        IRoleRepository roleRepo)
+    public ArrivalRepository(IQueryBuilder queryBuilder, IDbFactory dbFactory, IDbSettings dbSettings)
         : base(queryBuilder, dbFactory)
     {
-        _queryBuilder = queryBuilder;
-        _dbFactory = dbFactory;
         _dbSettings = dbSettings;
-        _employeeRepo = employeeRepo;
-        _roleRepo = roleRepo;
     }
 
     public async Task CreateAsync(int employeeId, DateTime dateTime)
     {
-        var sql = $"INSERT INTO [dbo].[Arrivals] " +
-            $"([EmployeeId], [DateArrival]) VALUES(" +
-            $"N'{employeeId}', N'{dateTime}')";
+        var sql = $"INSERT INTO [dbo].[Arrivals] ([EmployeeId], [DateArrival]) VALUES(N'{employeeId}', N'{dateTime}')";
 
         using (var connection = new SqlConnection(_dbSettings.ConnectionString))
         {
             try
             {
-                int rowsAffected = await connection.ExecuteAsync(sql);
+                await connection.ExecuteAsync(sql);
 
-                Log.Information($"Report was added: {dateTime} | {employeeId}");
+                Log.Information(string.Format(LoggerMessages.Database.EntityCreated, nameof(ArrivalEntity)) + $" {dateTime} | {employeeId}.");
             }
             catch (Exception ex)
             {
-                Log.Error(ex.Message);
+                Log.Error(string.Format(LoggerMessages.Database.FailedToCreateEntity, nameof(ArrivalEntity)) + " " + (ex.Message));
             }
         }
     }
 
     public async Task<Page<ArrivalEntity>> GetAllAsync(DateTime fromDate, DateTime toDate, string order, int skip = 0, int take = 50)
     {
-        if (fromDate > toDate)
-        {
-            throw new Exception();
-        }
-
-        if (order != "ASC" && order != "DESC")
+        if (fromDate > toDate || (order != "ASC" && order != "DESC"))
         {
             throw new Exception();
         }

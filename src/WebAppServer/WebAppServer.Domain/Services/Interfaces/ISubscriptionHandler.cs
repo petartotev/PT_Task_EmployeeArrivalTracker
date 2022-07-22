@@ -4,5 +4,5 @@ public interface ISubscriptionHandler
 {
     Task SubscribeAsync(string callbackUrl);
 
-    bool ValidateToken(string token);
+    bool ValidateIncomingToken(string token);
 }

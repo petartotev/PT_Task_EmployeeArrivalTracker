@@ -1,6 +1,6 @@
 ﻿namespace WebAppServer.V1.Contracts;
 
-public class ArrivalContract
+public class ArrivalResponseContract
 {
     public int Id { get; set; }
 

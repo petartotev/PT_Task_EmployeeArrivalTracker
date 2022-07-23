@@ -19,7 +19,6 @@ public class ArrivalsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll([FromQuery] ArrivalRequestContract request)
     {
-
         var result = await _arrivalsService.GetArrivalsAsync(request);
 
         Log.Information("SENT INFORMATION SUCCESSFULLY!");

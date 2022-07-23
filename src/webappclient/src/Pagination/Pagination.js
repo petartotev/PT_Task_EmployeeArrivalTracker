@@ -16,26 +16,22 @@ const Pagination = (props) => {
     }
 
     function isEdgeConditionLastButton() {
-        return props.page.currentPage === props.page.totalPages;
+        return props.page.currentPage === props.page.totalPages || props.page.totalPages === 0;
     }
 
     function buttonFirstClicked() {
-        console.log("Button clicked");
         props.parentFunction('first');
     }
 
     function buttonPreviousClicked() {
-        console.log("Button clicked");
         props.parentFunction('previous');
     }
 
     function buttonNextClicked() {
-        console.log("Button clicked");
         props.parentFunction('next');
     }
 
     function buttonLastClicked() {
-        console.log("Button clicked");
         props.parentFunction('last');
     }
 

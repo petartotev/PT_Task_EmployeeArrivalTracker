@@ -59,7 +59,7 @@ const Table = ({ arrivals }) => {
                 </thead>
                 <tbody>
                     {arrivals.map(arrival => (
-                        <tr>
+                        <tr key={arrival.id}>
                             <td><b>{new Date(arrival.dateArrival).getFullYear()}-{(new Date(arrival.dateArrival).getMonth() + 1).toString().padStart(2, '0')}-{new Date(arrival.dateArrival).getDate()}</b></td>
                             <td><b className="text-primary">{getDayAbbreviationFromNumber(new Date(arrival.dateArrival).getDay())}</b></td>
                             <td><b>{(new Date(arrival.dateArrival).getHours()).toString().padStart(2, '0')}:{(new Date(arrival.dateArrival).getMinutes()).toString().padStart(2, '0')}:{(new Date(arrival.dateArrival).getSeconds()).toString().padStart(2, '0')}</b></td>

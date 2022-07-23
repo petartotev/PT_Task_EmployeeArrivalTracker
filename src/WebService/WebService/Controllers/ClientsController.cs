@@ -32,11 +32,9 @@ namespace WebService.Controllers
                 Token = token
             };
 
-            //new Simulator(newClient).Simulate(DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.CurrentCulture));
+            new Simulator(newClient).Simulate(DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.CurrentCulture));
             return Ok(new { newClient.Token, Expires = DateTime.UtcNow.AddHours(8).ToString("u").Replace(" ","T") });
         }
-        
-
     }
 
     public class Simulator

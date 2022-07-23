@@ -13,9 +13,11 @@ public class SubscriptionHandler : ISubscriptionHandler
 {
     private string _token;
     private readonly IDbSettings _settings;
+    private readonly IHttpClientFactory _clientFactory;
 
-    public SubscriptionHandler(IDbSettings settings)
+    public SubscriptionHandler(IDbSettings settings, IHttpClientFactory clientFactory)
     {
+        _clientFactory = clientFactory;
         _settings = settings;
     }
 
@@ -32,8 +34,7 @@ public class SubscriptionHandler : ISubscriptionHandler
         }
         catch (Exception ex)
         {
-            Log.Error(ex.Message);
-            Log.Error(LoggerMessages.ExternalApi.WebService.ServiceUnavailable);
+            Log.Fatal(LoggerMessages.ExternalApi.WebService.ServiceOff + " " + ex.Message);
         }
 
         ScheduleSingleJobForTomorrowToDailySubscribeToWebServiceAsync(callbackUrl);
@@ -41,15 +42,19 @@ public class SubscriptionHandler : ISubscriptionHandler
 
     public async Task SubscribeToWebServiceAsync(string callbackUrl = null)
     {
-        callbackUrl ??= _settings.ConnectionUrlWebService;
-
-        HttpClient client = new();
+        var client = _clientFactory.CreateClient(CommonConstants.Application.HttpClientName);
         client.DefaultRequestHeaders.Add(Header.ExternalApi.WebService.AcceptClientKey, Header.ExternalApi.WebService.AcceptClientValue);
 
-        var response = await client.GetAsync(callbackUrl);
-        response.EnsureSuccessStatusCode();
+        var response = await client.GetAsync(callbackUrl ?? _settings.ConnectionUrlWebService);
 
-        _token = JsonConvert.DeserializeObject<WebServiceResponse>(await response.Content.ReadAsStringAsync()).Token;
+        if (response.IsSuccessStatusCode)
+        {
+            _token = JsonConvert.DeserializeObject<WebServiceResponse>(await response.Content.ReadAsStringAsync()).Token;
+
+            Log.Information(LoggerMessages.ExternalApi.WebService.SuccessfulSubscription);
+        }
+
+        Log.Warning(LoggerMessages.ExternalApi.WebService.ServiceUnavailable);
     }
 
     // Single, one-time Hangfire job at 00:01 AM tomorrow:

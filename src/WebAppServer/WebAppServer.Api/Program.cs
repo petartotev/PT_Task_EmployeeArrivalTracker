@@ -4,17 +4,19 @@ using Serilog;
 using Serilog.Events;
 using WebAppServer.Api.Extensions;
 using WebAppServer.Api.Middlewares;
+using WebAppServer.Api.Policies;
 using WebAppServer.Autofac;
 using WebAppServer.Common.Configuration.Interfaces;
+using WebAppServer.Common.Constants;
 using WebAppServer.Domain.Services.Interfaces;
 using WebAppServer.Repository.DbUp.Interfaces;
 using WebAppServer.Repository.Seeder.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
+// Use Autofac for DI
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(builder => builder.ConfigureHost()));
+// Use Serilog
 builder.Host.UseSerilog((ctx, lc) => lc
     .MinimumLevel.Information()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -22,7 +24,12 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .WriteTo.Console()
     .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day));
 
-builder.Services.UseHangfire(connectionString);
+// Use Polly
+builder.Services
+    .AddHttpClient(CommonConstants.Application.HttpClientName)
+    .AddPolicyHandler(request => new ClientPolicy().ExponentialHttpRetry);
+// Use Hangfire
+builder.Services.UseHangfire(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -35,6 +42,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseRouting();
+// TODO: Find a way to remove CORS, as it is not secure!!!
 app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.UseHttpsRedirection();
 app.UseAuthorization();
@@ -51,7 +59,7 @@ app.Services
     .GetService<IDatabaseUpgrader>()
     .Upgrade();
 
-// Seed database from file (if empty):
+// Seed database from file (only if empty):
 await app.Services
     .GetService<IDatabaseSeeder>()
     .SeedFromFileAsync(builder.Configuration.GetSection("DatabaseSettings")["SeederFilePath"]);
@@ -60,7 +68,5 @@ await app.Services
 await app.Services
     .GetService<ISubscriptionHandler>()
     .SubscribeAsync(app.Services.GetService<IDbSettings>().ConnectionUrlWebService);
-
-// TODO: Add retry mechanism with Polly!!!
 
 app.Run();

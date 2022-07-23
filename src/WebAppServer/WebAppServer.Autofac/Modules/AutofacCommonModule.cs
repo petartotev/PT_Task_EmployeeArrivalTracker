@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using WebAppServer.Api.Policies;
 using WebAppServer.Autofac.Extensions;
 using WebAppServer.Domain;
 using WebAppServer.Domain.Services;
@@ -16,6 +17,7 @@ public class AutofacCommonModule : Module
         builder.RegisterTypesEndingWith(typeof(DomainConfig).Assembly, "Service").AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterTypesEndingWith(typeof(DomainConfig).Assembly, "Mapper").AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterType<SubscriptionHandler>().As<ISubscriptionHandler>().SingleInstance();
+        builder.RegisterType<ClientPolicy>().AsSelf().SingleInstance();
 
         return;
     }

@@ -1,6 +1,9 @@
-﻿namespace WebAppServer.Repository.Interfaces;
+﻿using Dapperer;
+using WebAppServer.Entities;
 
-public interface IEmployeeRepository : IRepository
+namespace WebAppServer.Repository.Interfaces;
+
+public interface IEmployeeRepository : IRepository, IRepository<EmployeeEntity, int>
 {
     Task<int> CreateAsync(int id, string firstName, string lastName, string email, int age, string role, int? managerId);
 }

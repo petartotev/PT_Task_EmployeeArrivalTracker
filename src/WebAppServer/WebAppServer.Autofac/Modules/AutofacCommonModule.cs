@@ -14,6 +14,7 @@ public class AutofacCommonModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder.RegisterTypesEndingWith(typeof(RepositoryConfig).Assembly, "Repository").AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterTypesEndingWith(typeof(DomainConfig).Assembly, "Validator").AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterTypesEndingWith(typeof(DomainConfig).Assembly, "Service").AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterTypesEndingWith(typeof(DomainConfig).Assembly, "Mapper").AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterType<SubscriptionHandler>().As<ISubscriptionHandler>().SingleInstance();

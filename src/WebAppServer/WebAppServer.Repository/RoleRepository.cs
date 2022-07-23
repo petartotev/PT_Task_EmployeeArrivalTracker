@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using Dapper;
+using Dapperer;
 using Serilog;
 using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Common.Constants;
@@ -8,11 +9,12 @@ using WebAppServer.Repository.Interfaces;
 
 namespace WebAppServer.Repository;
 
-public class RoleRepository : IRoleRepository
+public class RoleRepository : Repository<RoleEntity, int>, IRoleRepository
 {
     private readonly IDbSettings _settings;
 
-    public RoleRepository(IDbSettings settings)
+    public RoleRepository(IQueryBuilder queryBuilder, IDbFactory dbFactory, IDbSettings settings)
+        : base(queryBuilder, dbFactory)
     {
         _settings = settings;
     }

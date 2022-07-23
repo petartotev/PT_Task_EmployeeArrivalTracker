@@ -15,7 +15,7 @@ public class FourthTokenHeaderRequiredFilterAttribute : ActionFilterAttribute
 
         if (fourthTokenHeader is null || fourthTokenHeader.Value.ToArray().Length == 0)
         {
-            throw new WebAppApiException(HttpStatusCode.Forbidden, ErrorCode.BadRequest, $"{Header.WebAppServer.FourthToken} is a required header.");
+            throw new ApiException(HttpStatusCode.Forbidden, ErrorCode.BadRequest, $"{Header.WebAppServer.FourthToken} is a required header.");
         }
 
         Log.Information($"Request was received with [X-Fourth-Token]: {fourthTokenHeader.Value.ToArray().First()}");

@@ -34,7 +34,7 @@ public class SubscriptionHandler : ISubscriptionHandler
         }
         catch (Exception ex)
         {
-            Log.Fatal(LoggerMessages.ExternalApi.WebService.ServiceOff + " " + ex.Message);
+            Log.Fatal(LoggerMessages.ExternalApi.WebService.ServiceDown + " " + ex.Message);
         }
 
         ScheduleSingleJobForTomorrowToDailySubscribeToWebServiceAsync(callbackUrl);
@@ -52,9 +52,13 @@ public class SubscriptionHandler : ISubscriptionHandler
             _token = JsonConvert.DeserializeObject<WebServiceResponse>(await response.Content.ReadAsStringAsync()).Token;
 
             Log.Information(LoggerMessages.ExternalApi.WebService.SuccessfulSubscription);
+            Log.Information($"Token: {_token}");
         }
+        else
+        {
+            Log.Warning(LoggerMessages.ExternalApi.WebService.ServiceUnavailable);
 
-        Log.Warning(LoggerMessages.ExternalApi.WebService.ServiceUnavailable);
+        }
     }
 
     // Single, one-time Hangfire job at 00:01 AM tomorrow:

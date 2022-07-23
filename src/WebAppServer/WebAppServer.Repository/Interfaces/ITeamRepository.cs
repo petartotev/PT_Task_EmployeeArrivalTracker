@@ -1,8 +1,9 @@
-﻿using WebAppServer.Entities;
+﻿using Dapperer;
+using WebAppServer.Entities;
 
 namespace WebAppServer.Repository.Interfaces;
 
-public interface ITeamRepository : IRepository
+public interface ITeamRepository : IRepository, IRepository<TeamEntity, int>
 {
     Task<int> CreateAsync(string name);
 

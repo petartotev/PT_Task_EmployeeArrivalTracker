@@ -22,7 +22,7 @@ public class LoggerMessages
     {
         public class WebService
         {
-            public const string ServiceOff = $"{nameof(WebService)} appears to be off!";
+            public const string ServiceDown = $"{nameof(WebService)} appears to be down!";
             public const string ServiceUnavailable = $"{nameof(WebService)} is currently unavailable!";
             public const string SuccessfulSubscription = $"Application successfully subscribed to {nameof(WebService)}.";
         }

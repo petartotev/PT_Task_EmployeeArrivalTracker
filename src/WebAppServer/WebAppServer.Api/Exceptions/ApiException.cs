@@ -1,12 +1,17 @@
-﻿namespace WebAppServer.Api.Exceptions;
+﻿using System.Net;
+
+namespace WebAppServer.Api.Exceptions;
 
 public class ApiException : Exception
 {
-    public ApiException(int statusCode, string errorMessage)
-        : base(errorMessage)
+    public ApiException(HttpStatusCode httpStatusCode, string code, string message)
+        : base(message)
     {
-        StatusCode = statusCode;
+        Code = code;
+        HttpStatusCode = httpStatusCode;
     }
 
-    public int StatusCode { get; set; }
+    public string Code { get; set; }
+
+    public HttpStatusCode HttpStatusCode { get; set; }
 }

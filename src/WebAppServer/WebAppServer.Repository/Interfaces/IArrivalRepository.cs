@@ -3,7 +3,7 @@ using WebAppServer.Entities;
 
 namespace WebAppServer.Repository.Interfaces;
 
-public interface IArrivalRepository : IRepository
+public interface IArrivalRepository : IRepository, IRepository<ArrivalEntity, int>
 {
     Task CreateAsync(int employeeId, DateTime dateTime);
 

@@ -46,7 +46,7 @@ app.UseRouting();
 app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseHangfireDashboard();
 app.UseEndpoints(endpoints =>
 {

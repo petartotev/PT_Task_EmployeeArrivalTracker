@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using Dapper;
+using Dapperer;
 using Serilog;
 using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Common.Constants;
@@ -8,11 +9,12 @@ using WebAppServer.Repository.Interfaces;
 
 namespace WebAppServer.Repository;
 
-public class TeamRepository : ITeamRepository
+public class TeamRepository : Repository<TeamEntity, int>, ITeamRepository
 {
     private readonly IDbSettings _settings;
 
-    public TeamRepository(IDbSettings settings)
+    public TeamRepository(IQueryBuilder queryBuilder, IDbFactory dbFactory, IDbSettings settings)
+        : base(queryBuilder, dbFactory)
     {
         _settings = settings;
     }

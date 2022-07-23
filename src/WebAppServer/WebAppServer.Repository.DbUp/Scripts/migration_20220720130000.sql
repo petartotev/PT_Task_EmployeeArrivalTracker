@@ -8,3 +8,9 @@ ALTER TABLE [dbo].[Arrivals]
 WITH CHECK ADD CONSTRAINT [FK_Arrivals_Employees_EmployeeId] 
 FOREIGN KEY ([EmployeeId]) 
 REFERENCES [dbo].[Employees] ([Id])
+
+IF NOT EXISTS (SELECT 1 FROM sys.objects WHERE type = 'UQ' AND name = 'ArrivalEmployeeIdDateArrival')
+   BEGIN
+        ALTER TABLE [dbo].[Arrivals]
+        ADD CONSTRAINT [ArrivalEmployeeIdDateArrival] UNIQUE NONCLUSTERED ([EmployeeId], [DateArrival])
+   END

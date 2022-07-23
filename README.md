@@ -41,6 +41,7 @@ GO
 -
 - Next, WebAppServer invokes a **Singleton service** which:
     - builds a http client that calls WebService and subscribes to it. The token from response is stored in-memory as a private field. It is later used as a source-of-truth for incoming data. (Program.cs)  
+        - In case WebService responds with 500 (Internal Server Error), Polly is used in order to retry 5 times, exponentially. 
     - schedules a **single Hangfire job** for 00:05 AM next day which triggers another, **recurring Hangfire job**.  
     💡 Every day at 07:00 AM this **recurring Hangfire job** invokes a function which calls WebService and resubscribes to it. The new token from response overrides the old.
 - Last but not least, you should now see incoming data from WebService in the Serilog console!

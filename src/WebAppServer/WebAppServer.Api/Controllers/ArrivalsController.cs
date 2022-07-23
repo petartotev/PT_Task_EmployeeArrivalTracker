@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net.Mime;
+using Microsoft.AspNetCore.Mvc;
 using Serilog;
+using Swashbuckle.AspNetCore.Annotations;
+using WebAppServer.Api.Swagger;
 using WebAppServer.Domain.Services.Interfaces;
 using WebAppServer.V1.Contracts;
 
@@ -17,6 +20,9 @@ public class ArrivalsController : ControllerBase
     }
 
     [HttpGet]
+    [Produces(MediaTypeNames.Application.Json)]
+    [SwaggerOperation(SwaggerConstants.Arrivals.GetAll.Summary, SwaggerConstants.Arrivals.GetAll.Description)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll([FromQuery] ArrivalRequestContract request)
     {
         var result = await _arrivalsService.GetArrivalsAsync(request);

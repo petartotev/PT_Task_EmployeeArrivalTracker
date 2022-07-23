@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net.Mime;
+using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using Swashbuckle.AspNetCore.Filters;
 using WebAppServer.Api.Extensions;
 using WebAppServer.Api.Filters;
+using WebAppServer.Api.Swagger;
+using WebAppServer.Api.Swagger.Examples.Reports;
 using WebAppServer.Common;
 using WebAppServer.Domain.Services.Interfaces;
 using WebAppServer.V1.Contracts;
@@ -23,6 +28,11 @@ public class ReportsController : ControllerBase
 
     [HttpPost]
     [FourthTokenHeaderRequiredFilter]
+    [Produces(MediaTypeNames.Application.Json)]
+    [SwaggerOperation(SwaggerConstants.Reports.CreateReports.Summary, SwaggerConstants.Reports.CreateReports.Description)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Error[]))]
+    [SwaggerResponseExample(StatusCodes.Status400BadRequest, typeof(ReportsCreateReportsBadRequestResponseExample))]
     public async Task<IActionResult> CreateReports([FromBody] IEnumerable<ReportContract> request)
     {
         // TODO: Create a middleware to validate [FromBody] params for null.

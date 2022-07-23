@@ -2,6 +2,7 @@
 using Hangfire;
 using Serilog;
 using Serilog.Events;
+using Swashbuckle.AspNetCore.Filters;
 using WebAppServer.Api.Extensions;
 using WebAppServer.Api.Middlewares;
 using WebAppServer.Api.Policies;
@@ -32,7 +33,14 @@ builder.Services
 builder.Services.UseHangfire(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services
+    .AddSwaggerGen(options =>
+    {
+        options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Server", Version = "v1" });
+        options.EnableAnnotations();
+        options.ExampleFilters();
+    })
+    .AddSwaggerExamples();
 
 var app = builder.Build();
 

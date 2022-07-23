@@ -2,6 +2,8 @@
 
 public class ValidatorConstants
 {
+    public const string PropertyName = "{PropertyName}";
+
     public class ErrorCode
     {
         public const string ValidationError = nameof(ValidationError);

@@ -64,6 +64,8 @@ serve -s build
 
 ### **WebService (3rd party provider)**
 
+Comments on **JsonEmployeeGenerator** are written down in the Program.cs file of the console application, inline
+
 ### **WebAppServer (BE server)**
 
 #### **CORS**

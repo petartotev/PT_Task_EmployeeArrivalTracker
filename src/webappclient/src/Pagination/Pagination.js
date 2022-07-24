@@ -36,7 +36,8 @@ const Pagination = (props) => {
     }
 
     return (
-        <div className="row justify-content-center m-3">
+        <div className="row m-3">
+            <div className="col-md-4"></div>
             <div className="col-md-4 d-flex justify-content-evenly">
                 <button className="btn btn-dark text-light rounded-pill" onClick={buttonFirstClicked} disabled={isEdgeConditionFirstButton()}><FontAwesomeIcon icon="fa-solid fa-angles-left" size="lg" /></button>
                 <button className="btn btn-dark text-light rounded-pill" onClick={buttonPreviousClicked} disabled={isEdgeConditionPreviousButton()}><FontAwesomeIcon icon="fa-solid fa-chevron-left" size="lg" /></button>

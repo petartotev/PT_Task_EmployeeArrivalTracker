@@ -3,11 +3,11 @@ using WebAppServer.Tests.Infrastructure.Constants;
 
 namespace WebAppServer.Tests.Unit.Domain.Validators.Rules;
 
-public class DateArrivalRuleValidatorTests
+public class PageDateRuleValidatorTests
 {
-    private readonly DateArrivalRuleValidator _sut;
+    private readonly PageDateRuleValidator _sut;
 
-    public DateArrivalRuleValidatorTests()
+    public PageDateRuleValidatorTests()
     {
         _sut = new();
     }
@@ -46,7 +46,7 @@ public class DateArrivalRuleValidatorTests
     }
 
     [Test]
-    public async Task WithDatesNotFromToday_ReturnsInvalidResult([Values(-365 * 10, -1, 1, - 100, 101)] int daysFromNow)
+    public async Task WithDatesInTheFuture_ReturnsInvalidResult([Values(365 * 10, 1, 100)] int daysFromNow)
     {
         // Arrange & Act
         var validationResult = await _sut.ValidateAsync(DateTime.Now.AddDays(daysFromNow));
@@ -56,6 +56,8 @@ public class DateArrivalRuleValidatorTests
         var error = validationResult.Errors.Single();
         error.ErrorMessage
             .Should()
-            .Be(string.Format(TestsConstants.ErrorMessages.RequestValidation.DateProvidedMustBeToday, "'When'"));
+            .Be(string.Format(
+                TestsConstants.ErrorMessages.RequestValidation.DateProvidedMustBeTodayOrInThePast,
+                "'toDate' and 'fromDate'"));
     }
 }

@@ -11,8 +11,15 @@ public class TestsConstants
     {
         public class RequestValidation
         {
-            public const string IntegerMustBePositive = "{0} must have a positive integer value.";
+            public const string IntegerMustBePositive = "{0} must be a positive integer.";
+            public const string IntegerMustBePositiveOrEmpty = "{0} must be either a positive integer or empty.";
+            public const string IntegerMustBeNonNegativeOrEmpty = "{0} must be either a nonnegative integer or empty.";
+
             public const string DateProvidedMustBeToday = "{0} must be a valid datetime today.";
+            public const string DateProvidedMustBeTodayOrInThePast = "{0} must be either today or in the past.";
+            public const string DateFromProvidedMustBeBeforeDateTo = "'{0}' must either before '{1}' or these should be equal.";
+
+            public const string OrderMustBeAscDescOrEmpty = "{0} must be either 'ASC', 'DESC' or empty.";
         }
 
         public class BusinessValidation

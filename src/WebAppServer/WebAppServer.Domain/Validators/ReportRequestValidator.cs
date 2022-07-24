@@ -10,7 +10,7 @@ public class ReportRequestValidator : AbstractValidator<ReportContract>
         IEmployeeIdRuleValidator employeeIdRuleValidator,
         IDateArrivalRuleValidator dateArrivalRuleValidator)
     {
-        RuleFor(x => x.EmployeeId).SetValidator(employeeIdRuleValidator);
-        RuleFor(x => x.When).SetValidator(dateArrivalRuleValidator);
+        RuleFor(request => request.EmployeeId).SetValidator(employeeIdRuleValidator);
+        RuleFor(request => request.When).SetValidator(dateArrivalRuleValidator);
     }
 }

@@ -33,11 +33,11 @@ public class DatabaseSeeder : IDatabaseSeeder
     {
         if (await IsDatabaseEmptyAsync())
         {
-            var employees = await JsonManager.GetEmployeesFromJsonFileAsync(path);
+            var employeesFromFile = await JsonManager.GetEmployeesFromJsonFileAsync(path);
 
-            await SeedRolesAsync(employees.Select(x => x.Role).Distinct());
-            await SeedTeamsAsync(employees.SelectMany(x => x.Teams).Distinct());
-            await SeedEmployeesAsync(employees);
+            await SeedRolesAsync(employeesFromFile.Select(x => x.Role).Distinct());
+            await SeedTeamsAsync(employeesFromFile.SelectMany(x => x.Teams).Distinct());
+            await SeedEmployeesAsync(employeesFromFile);
         }
     }
 
@@ -98,12 +98,12 @@ public class DatabaseSeeder : IDatabaseSeeder
         }
     }
 
-    private async Task SeedArrivalsInTheLastDaysPerEmployeeAsync(int employeeId, int daysInThePastFromYesterday = 4)
+    private async Task SeedArrivalsInTheLastDaysPerEmployeeAsync(int employeeId, int daysFromToday = 5)
     {
-        for (int i = 1; i <= daysInThePastFromYesterday; i++)
+        for (int day = 1; day <= daysFromToday; day++)
         {
             await _arrivalRepository
-                .CreateAsync(employeeId, DateTime.Today.AddDays(-i).AddHours(_random.Next(8, 11)).AddMinutes(_random.Next(0, 60)));
+                .CreateAsync(employeeId, DateTime.Today.AddDays(-day).AddHours(_random.Next(8, 11)).AddMinutes(_random.Next(0, 60)));
         }
     }
 

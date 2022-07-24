@@ -19,7 +19,8 @@ const Home = () => {
     const [filterSelection, setFilterSelection] = useState({
         fromDate: getDate(),
         toDate: getDate(),
-        order: "DESC"
+        order: "DESC",
+        pageCount: 50
     });
 
     useEffect(() => {
@@ -35,6 +36,10 @@ const Home = () => {
             .finally(() => {
             });
     }, []);
+
+    useEffect(() => {
+        fetchData(0, filterSelection.pageCount);
+    }, [filterSelection])
 
     function getDate() {
         var today = new Date();
@@ -62,6 +67,11 @@ const Home = () => {
             .then(data => {
                 setPageArrivals(data);
                 console.log(data.items);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
             });
     }
 
@@ -80,12 +90,8 @@ const Home = () => {
         }
     }
 
-    useEffect(() => {
-        fetchData(0, pageArrivals.itemsPerPage);
-    }, [filterSelection])
-
     function onFilterChangedFromChild(filterData) {
-        console.log("Filter data to be updated is: " + filterData.fromDate + " " + filterData.toDate + " " + filterData.order);
+        console.log("Filter data to be updated is: " + filterData.fromDate + " " + filterData.toDate + " " + filterData.order + " " + filterData.pageCount);
         setFilterSelection(filterData);
     }
 

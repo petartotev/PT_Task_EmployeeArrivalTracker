@@ -7,7 +7,8 @@ const Filter = (props) => {
     const [filterForm, setFilterForm] = useState({
         fromDate: getDate(),
         toDate: getDate(),
-        order: "DESC"
+        order: "DESC",
+        pageCount: 50
     });
 
     function getDate() {
@@ -38,7 +39,7 @@ const Filter = (props) => {
             <div className="collapse bg-dark" id="navbarToggleExternalContent">
                 <div className="container-fluid bg-secondary d-flex justify-content-center">
                     <form className="mt-2">
-                        <div className="form-group mt-3 mb-3">
+                        <div className="form-group mt-3 mb-3 text-light">
                             <label htmlFor="fromDate">From&nbsp;</label>
                             <input type="date" value={filterForm.fromDate} onChange={onChange} id="fromDate" name="fromDate" className="rounded-pill ps-2 pe-2" />
                             <label htmlFor="toDate">&nbsp;To&nbsp;</label>
@@ -48,6 +49,14 @@ const Filter = (props) => {
                                 <option>DESC</option>
                                 <option>ASC</option>
                             </select>
+                            <label htmlFor="pageCount">&nbsp;Shows&nbsp;</label>
+                            <select value={filterForm.pageCount} onChange={onChange} id="pageCount" name="pageCount" className="rounded-pill ps-2 pe-2">
+                                <option>10</option>
+                                <option>25</option>
+                                <option>50</option>
+                                <option>100</option>
+                            </select>
+                            &nbsp;items&nbsp;
                         </div>
                         <div className="d-flex justify-content-center mb-3">
                             <button className="btn btn-bg btn-primary rounded-pill" disabled={!filterForm.fromDate || !filterForm.toDate || !filterForm.order} onClick={onSubmit}>

@@ -57,7 +57,6 @@ public class SubscriptionHandler : ISubscriptionHandler
         else
         {
             Log.Warning(LoggerMessages.ExternalApi.WebService.ServiceUnavailable);
-
         }
     }
 

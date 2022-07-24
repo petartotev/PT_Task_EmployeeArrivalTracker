@@ -39,9 +39,14 @@ public class ArrivalRepository : Repository<ArrivalEntity, int>, IArrivalReposit
         }
     }
 
-    public async Task<Page<ArrivalEntity>> GetAllAsync(DateTime fromDate, DateTime toDate, string order, int skip = 0, int take = 50)
+    public async Task<Page<ArrivalEntity>> GetAllAsync(
+        DateTime fromDate,
+        DateTime toDate,
+        string order = "DESC",
+        int skip = 0,
+        int take = 50)
     {
-        if (fromDate > toDate || (order != "ASC" && order != "DESC"))
+        if (fromDate > toDate || (order.ToUpperInvariant() != "ASC" && order.ToUpperInvariant() != "DESC"))
         {
             throw new Exception();
         }
@@ -53,7 +58,7 @@ public class ArrivalRepository : Repository<ArrivalEntity, int>, IArrivalReposit
         var sql = $@"
             SELECT * FROM [dbo].[Arrivals]
             WHERE [DateArrival] > '{fromDate}' AND [DateArrival] < '{toDate}'
-            ORDER BY [DateArrival] {order}
+            ORDER BY [DateArrival] {order.ToUpperInvariant()}
             OFFSET {skip} ROWS
             FETCH NEXT {take} ROWS ONLY";
 

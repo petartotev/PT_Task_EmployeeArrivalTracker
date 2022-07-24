@@ -20,12 +20,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:51396/api/clients/subscribe?date=2016-03-10&callback={{url-callback}}",
-							"protocol": "http",
+							"raw": "{{url-webservice-http}}/api/clients/subscribe?date=2022-07-24&callback={{url-webappserver-https}}/reports",
 							"host": [
-								"localhost"
+								"{{url-webservice-http}}"
 							],
-							"port": "51396",
 							"path": [
 								"api",
 								"clients",
@@ -34,11 +32,11 @@
 							"query": [
 								{
 									"key": "date",
-									"value": "2016-03-10"
+									"value": "2022-07-24"
 								},
 								{
 									"key": "callback",
-									"value": "{{url-callback}}"
+									"value": "{{url-webappserver-https}}/reports"
 								}
 							]
 						}
@@ -56,12 +54,10 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:51396/api/clients/subscribe?date=2016-03-10&callback={{url-callback}}",
-									"protocol": "http",
+									"raw": "{{url-webservice-http}}/api/clients/subscribe?date=2022-07-24&callback={{url-webappserver-https}}/reports",
 									"host": [
-										"localhost"
+										"{{url-webservice-http}}"
 									],
-									"port": "51396",
 									"path": [
 										"api",
 										"clients",
@@ -70,18 +66,18 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2016-03-10"
+											"value": "2022-07-24"
 										},
 										{
 											"key": "callback",
-											"value": "{{url-callback}}"
+											"value": "{{url-webappserver-https}}/reports"
 										}
 									]
 								}
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "json",
+							"_postman_previewlanguage": "JSON",
 							"header": [
 								{
 									"key": "Cache-Control",
@@ -109,7 +105,7 @@
 								},
 								{
 									"key": "X-SourceFiles",
-									"value": "=?UTF-8?B?UDpcc291cmNlXHJlcG9zXF9fcHVibGljXEVtcGxveWVlQXJyaXZhbFRyYWNrZXJDb2RpbmdFeGVyY2lzZVxXZWJTZXJ2aWNlXGFwaVxjbGllbnRzXHN1YnNjcmliZQ==?="
+									"value": "=?UTF-8?B?QzpcUHJvamVjdHNcRW1wbG95ZWVBcnJpdmFsVHJhY2tlclxzcmNcV2ViU2VydmljZVxXZWJTZXJ2aWNlXGFwaVxjbGllbnRzXHN1YnNjcmliZQ==?="
 								},
 								{
 									"key": "X-Powered-By",
@@ -117,7 +113,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 19 Jul 2022 15:08:00 GMT"
+									"value": "Sun, 24 Jul 2022 08:43:06 GMT"
 								},
 								{
 									"key": "Content-Length",
@@ -125,7 +121,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"Token\": \"3e41c39c4b114e01966ac3c6f9d3cce5\",\n    \"Expires\": \"2022-07-19T23:08:01Z\"\n}"
+							"body": "{\"Token\":\"ca0a30ec87fd4a9eb3c9c6cdf0a11a2e\",\"Expires\":\"2022-07-24T16:43:06Z\"}"
 						},
 						{
 							"name": "401 Unauthorized",
@@ -134,17 +130,15 @@
 								"header": [
 									{
 										"key": "Accept-Client",
-										"value": "",
+										"value": "Fourth-Monitor2",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost:51396/api/clients/subscribe?date=2016-03-10&callback={{url-callback}}",
-									"protocol": "http",
+									"raw": "{{url-webservice-http}}/api/clients/subscribe?date=2022-07-24&callback={{url-webappserver-https}}/reports",
 									"host": [
-										"localhost"
+										"{{url-webservice-http}}"
 									],
-									"port": "51396",
 									"path": [
 										"api",
 										"clients",
@@ -153,18 +147,18 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2016-03-10"
+											"value": "2022-07-24"
 										},
 										{
 											"key": "callback",
-											"value": "{{url-callback}}"
+											"value": "{{url-webappserver-https}}/reports"
 										}
 									]
 								}
 							},
 							"status": "Unauthorized",
 							"code": 401,
-							"_postman_previewlanguage": "plain",
+							"_postman_previewlanguage": "JSON",
 							"header": [
 								{
 									"key": "Cache-Control",
@@ -192,7 +186,7 @@
 								},
 								{
 									"key": "X-SourceFiles",
-									"value": "=?UTF-8?B?UDpcc291cmNlXHJlcG9zXF9fcHVibGljXEVtcGxveWVlQXJyaXZhbFRyYWNrZXJDb2RpbmdFeGVyY2lzZVxXZWJTZXJ2aWNlXGFwaVxjbGllbnRzXHN1YnNjcmliZQ==?="
+									"value": "=?UTF-8?B?QzpcUHJvamVjdHNcRW1wbG95ZWVBcnJpdmFsVHJhY2tlclxzcmNcV2ViU2VydmljZVxXZWJTZXJ2aWNlXGFwaVxjbGllbnRzXHN1YnNjcmliZQ==?="
 								},
 								{
 									"key": "X-Powered-By",
@@ -200,7 +194,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 19 Jul 2022 15:09:29 GMT"
+									"value": "Sun, 24 Jul 2022 08:43:40 GMT"
 								},
 								{
 									"key": "Content-Length",
@@ -216,7 +210,918 @@
 		},
 		{
 			"name": "WebApplication",
-			"item": []
+			"item": [
+				{
+					"name": "Reports (used by 3rd party)",
+					"item": [
+						{
+							"name": "Create Reports",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Fourth-Token",
+										"value": "787841d9f9a74df6bc0fb16d5b6c9a46",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"employeeId\": 1234567,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    },\r\n    {\r\n        \"employeeId\": 1234567,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-webappserver-https}}/api/reports",
+									"host": [
+										"{{url-webappserver-https}}"
+									],
+									"path": [
+										"api",
+										"reports"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "787841d9f9a74df6bc0fb16d5b6c9a46",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"employeeId\": 555,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    },\r\n    {\r\n        \"employeeId\": 666,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:7168/api/reports",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "7168",
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "JSON",
+									"header": [
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 08:49:09 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										}
+									],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "400 BadRequest (when)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "787841d9f9a74df6bc0fb16d5b6c9a46",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"employeeId\": 555,\r\n        \"when\": \"2022-07-22T14:35:20Z\"\r\n    },\r\n    {\r\n        \"employeeId\": 666,\r\n        \"when\": \"2022-07-22T14:35:20Z\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:7168/api/reports",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "7168",
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 08:49:58 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ErrorCode\": \"ValidationError\",\n        \"ErrorMessage\": \"'When' must be a valid datetime today.\"\n    }\n]"
+								},
+								{
+									"name": "400 BadRequest (employeeId)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "787841d9f9a74df6bc0fb16d5b6c9a46",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"employeeId\": -555,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    },\r\n    {\r\n        \"employeeId\": 666,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:7168/api/reports",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "7168",
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 08:49:26 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ErrorCode\": \"ValidationError\",\n        \"ErrorMessage\": \"'EmployeeId' must have a positive integer value.\"\n    }\n]"
+								},
+								{
+									"name": "400 BadReques (no employee in db)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "787841d9f9a74df6bc0fb16d5b6c9a46",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"employeeId\": 1234567,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    },\r\n    {\r\n        \"employeeId\": 1234567,\r\n        \"when\": \"2022-07-24T14:35:20Z\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:7168/api/reports",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "7168",
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 08:52:34 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ErrorCode\": \"ValidationError\",\n        \"ErrorMessage\": \"Entity with such id was not found in the database.\"\n    }\n]"
+								},
+								{
+									"name": "401 Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "ca0a30ec87fd4a9eb3c9c6cdf0a11a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"employeeId\": 123123,\r\n        \"when\": \"2022-07-23T14:35:20Z\"\r\n    },\r\n    {\r\n        \"employeeId\": 32234,\r\n        \"when\": \"2022-07-23T14:35:20Z\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:7168/api/reports",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "7168",
+											"path": [
+												"api",
+												"reports"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 08:45:18 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errorCode\": \"UnauthorizedAccess\",\n    \"errorMessage\": \"The provided token is invalid.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Arrivals (used by client)",
+					"item": [
+						{
+							"name": "Get Arrivals (unfiltered)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Fourth-Token",
+										"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-webappserver-https}}/api/arrivals",
+									"host": [
+										"{{url-webappserver-https}}"
+									],
+									"path": [
+										"api",
+										"arrivals"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:7168/api/arrivals",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "7168",
+											"path": [
+												"api",
+												"arrivals"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 08:53:25 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"currentPage\": 1,\n    \"itemsPerPage\": 50,\n    \"totalPages\": 98,\n    \"totalItems\": 4853,\n    \"items\": [\n        {\n            \"id\": 10474,\n            \"dateArrival\": \"2022-07-24T14:35:20\",\n            \"employee\": {\n                \"id\": 555,\n                \"firstName\": \"Sam\",\n                \"lastName\": \"Short\",\n                \"email\": \"sam.short@fake.com\",\n                \"dateBirth\": \"1991-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10475,\n            \"dateArrival\": \"2022-07-24T14:35:20\",\n            \"employee\": {\n                \"id\": 666,\n                \"firstName\": \"Joseph\",\n                \"lastName\": \"Metcalfe\",\n                \"email\": \"joseph.metcalfe@fake.com\",\n                \"dateBirth\": \"1977-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6023,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1539,\n                \"firstName\": \"Victor\",\n                \"lastName\": \"Wallace\",\n                \"email\": \"victor.wallace@fake.com\",\n                \"dateBirth\": \"2004-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6037,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 765,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Nolan\",\n                \"email\": \"anthony.nolan@fake.com\",\n                \"dateBirth\": \"1974-07-23T22:58:55\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 6142,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2320,\n                \"firstName\": \"Joan\",\n                \"lastName\": \"Mackay\",\n                \"email\": \"joan.mackay@fake.com\",\n                \"dateBirth\": \"1987-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6281,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1730,\n                \"firstName\": \"Felicity\",\n                \"lastName\": \"Ogden\",\n                \"email\": \"felicity.ogden@fake.com\",\n                \"dateBirth\": \"1961-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 6670,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1675,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Chapman\",\n                \"email\": \"anthony.chapman@fake.com\",\n                \"dateBirth\": \"1978-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6772,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3295,\n                \"firstName\": \"Bernadette\",\n                \"lastName\": \"Anderson\",\n                \"email\": \"bernadette.anderson@fake.com\",\n                \"dateBirth\": \"1972-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6803,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1913,\n                \"firstName\": \"Simon\",\n                \"lastName\": \"Turner\",\n                \"email\": \"simon.turner@fake.com\",\n                \"dateBirth\": \"1967-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7061,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3910,\n                \"firstName\": \"Warren\",\n                \"lastName\": \"Smith\",\n                \"email\": \"warren.smith@fake.com\",\n                \"dateBirth\": \"1957-07-23T22:59:02\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7066,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3157,\n                \"firstName\": \"Molly\",\n                \"lastName\": \"Lawrence\",\n                \"email\": \"molly.lawrence@fake.com\",\n                \"dateBirth\": \"1991-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7094,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3931,\n                \"firstName\": \"Nathan\",\n                \"lastName\": \"Smith\",\n                \"email\": \"nathan.smith@fake.com\",\n                \"dateBirth\": \"1961-07-23T22:59:03\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7247,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3412,\n                \"firstName\": \"Adam\",\n                \"lastName\": \"Robertson\",\n                \"email\": \"adam.robertson@fake.com\",\n                \"dateBirth\": \"1959-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7256,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2621,\n                \"firstName\": \"Donna\",\n                \"lastName\": \"Cornish\",\n                \"email\": \"donna.cornish@fake.com\",\n                \"dateBirth\": \"1974-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 7380,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1736,\n                \"firstName\": \"Emily\",\n                \"lastName\": \"Manning\",\n                \"email\": \"emily.manning@fake.com\",\n                \"dateBirth\": \"1975-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7419,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1779,\n                \"firstName\": \"Joe\",\n                \"lastName\": \"Lyman\",\n                \"email\": \"joe.lyman@fake.com\",\n                \"dateBirth\": \"1959-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7421,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3903,\n                \"firstName\": \"Alexandra\",\n                \"lastName\": \"Cornish\",\n                \"email\": \"alexandra.cornish@fake.com\",\n                \"dateBirth\": \"1979-07-23T22:59:02\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7498,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 7,\n                \"firstName\": \"Pippa\",\n                \"lastName\": \"Oliver\",\n                \"email\": \"pippa.oliver@fake.com\",\n                \"dateBirth\": \"1986-07-23T22:58:50\",\n                \"role\": {\n                    \"id\": 1,\n                    \"name\": \"Manager\"\n                }\n            }\n        },\n        {\n            \"id\": 7510,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3465,\n                \"firstName\": \"Sebastian\",\n                \"lastName\": \"Vaughan\",\n                \"email\": \"sebastian.vaughan@fake.com\",\n                \"dateBirth\": \"1993-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 7685,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1630,\n                \"firstName\": \"Dylan\",\n                \"lastName\": \"Metcalfe\",\n                \"email\": \"dylan.metcalfe@fake.com\",\n                \"dateBirth\": \"1993-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7768,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2669,\n                \"firstName\": \"Leonard\",\n                \"lastName\": \"Bower\",\n                \"email\": \"leonard.bower@fake.com\",\n                \"dateBirth\": \"1974-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7812,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2922,\n                \"firstName\": \"Richard\",\n                \"lastName\": \"Churchill\",\n                \"email\": \"richard.churchill@fake.com\",\n                \"dateBirth\": \"1993-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7821,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1493,\n                \"firstName\": \"Joanne\",\n                \"lastName\": \"Hamilton\",\n                \"email\": \"joanne.hamilton@fake.com\",\n                \"dateBirth\": \"1997-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7832,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3850,\n                \"firstName\": \"Lauren\",\n                \"lastName\": \"Cornish\",\n                \"email\": \"lauren.cornish@fake.com\",\n                \"dateBirth\": \"1960-07-23T22:59:02\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7894,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1981,\n                \"firstName\": \"Adam\",\n                \"lastName\": \"Mackay\",\n                \"email\": \"adam.mackay@fake.com\",\n                \"dateBirth\": \"1972-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8186,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2659,\n                \"firstName\": \"Thomas\",\n                \"lastName\": \"Wilkins\",\n                \"email\": \"thomas.wilkins@fake.com\",\n                \"dateBirth\": \"1966-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 8234,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2836,\n                \"firstName\": \"Trevor\",\n                \"lastName\": \"Pullman\",\n                \"email\": \"trevor.pullman@fake.com\",\n                \"dateBirth\": \"1982-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8259,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3369,\n                \"firstName\": \"Nicholas\",\n                \"lastName\": \"North\",\n                \"email\": \"nicholas.north@fake.com\",\n                \"dateBirth\": \"1982-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 8264,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1653,\n                \"firstName\": \"Ryan\",\n                \"lastName\": \"Murray\",\n                \"email\": \"ryan.murray@fake.com\",\n                \"dateBirth\": \"1997-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8387,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2703,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Gray\",\n                \"email\": \"anthony.gray@fake.com\",\n                \"dateBirth\": \"1991-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8438,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2211,\n                \"firstName\": \"Sebastian\",\n                \"lastName\": \"Walker\",\n                \"email\": \"sebastian.walker@fake.com\",\n                \"dateBirth\": \"1980-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8496,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 21,\n                \"firstName\": \"Kimberly\",\n                \"lastName\": \"Newman\",\n                \"email\": \"kimberly.newman@fake.com\",\n                \"dateBirth\": \"1982-07-23T22:58:50\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 8503,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2304,\n                \"firstName\": \"Connor\",\n                \"lastName\": \"Arnold\",\n                \"email\": \"connor.arnold@fake.com\",\n                \"dateBirth\": \"1976-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8616,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3338,\n                \"firstName\": \"Joseph\",\n                \"lastName\": \"Hart\",\n                \"email\": \"joseph.hart@fake.com\",\n                \"dateBirth\": \"1966-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8799,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1256,\n                \"firstName\": \"Amelia\",\n                \"lastName\": \"Powell\",\n                \"email\": \"amelia.powell@fake.com\",\n                \"dateBirth\": \"1981-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8831,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1430,\n                \"firstName\": \"Blake\",\n                \"lastName\": \"Scott\",\n                \"email\": \"blake.scott@fake.com\",\n                \"dateBirth\": \"1960-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8943,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3191,\n                \"firstName\": \"David\",\n                \"lastName\": \"North\",\n                \"email\": \"david.north@fake.com\",\n                \"dateBirth\": \"1980-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9062,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2726,\n                \"firstName\": \"Joseph\",\n                \"lastName\": \"Harris\",\n                \"email\": \"joseph.harris@fake.com\",\n                \"dateBirth\": \"1967-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9140,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 753,\n                \"firstName\": \"Alan\",\n                \"lastName\": \"Ball\",\n                \"email\": \"alan.ball@fake.com\",\n                \"dateBirth\": \"1999-07-23T22:58:55\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9167,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2576,\n                \"firstName\": \"Samantha\",\n                \"lastName\": \"Peake\",\n                \"email\": \"samantha.peake@fake.com\",\n                \"dateBirth\": \"1969-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9186,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 313,\n                \"firstName\": \"Nathan\",\n                \"lastName\": \"Mackenzie\",\n                \"email\": \"nathan.mackenzie@fake.com\",\n                \"dateBirth\": \"1965-07-23T22:58:53\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9267,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2225,\n                \"firstName\": \"Jasmine\",\n                \"lastName\": \"Bell\",\n                \"email\": \"jasmine.bell@fake.com\",\n                \"dateBirth\": \"1983-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9296,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 143,\n                \"firstName\": \"Penelope\",\n                \"lastName\": \"Pullman\",\n                \"email\": \"penelope.pullman@fake.com\",\n                \"dateBirth\": \"1998-07-23T22:58:51\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9707,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2849,\n                \"firstName\": \"Lily\",\n                \"lastName\": \"Lewis\",\n                \"email\": \"lily.lewis@fake.com\",\n                \"dateBirth\": \"1978-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9863,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 683,\n                \"firstName\": \"Ava\",\n                \"lastName\": \"Black\",\n                \"email\": \"ava.black@fake.com\",\n                \"dateBirth\": \"1992-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10045,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 809,\n                \"firstName\": \"Rachel\",\n                \"lastName\": \"Gibson\",\n                \"email\": \"rachel.gibson@fake.com\",\n                \"dateBirth\": \"1985-07-23T22:58:55\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10270,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 569,\n                \"firstName\": \"Eric\",\n                \"lastName\": \"Payne\",\n                \"email\": \"eric.payne@fake.com\",\n                \"dateBirth\": \"2002-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10371,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1396,\n                \"firstName\": \"Virginia\",\n                \"lastName\": \"Hill\",\n                \"email\": \"virginia.hill@fake.com\",\n                \"dateBirth\": \"1959-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10387,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Welch\",\n                \"email\": \"anthony.welch@fake.com\",\n                \"dateBirth\": \"1966-07-23T22:58:50\",\n                \"role\": {\n                    \"id\": 1,\n                    \"name\": \"Manager\"\n                }\n            }\n        },\n        {\n            \"id\": 10553,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2680,\n                \"firstName\": \"Penelope\",\n                \"lastName\": \"Black\",\n                \"email\": \"penelope.black@fake.com\",\n                \"dateBirth\": \"1968-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Arrivals (filtered)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Fourth-Token",
+										"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-webappserver-https}}/api/arrivals?fromDate=2022-07-23&toDate=2022-08-24&order=DESC&skip=0&take=50",
+									"host": [
+										"{{url-webappserver-https}}"
+									],
+									"path": [
+										"api",
+										"arrivals"
+									],
+									"query": [
+										{
+											"key": "fromDate",
+											"value": "2022-07-23"
+										},
+										{
+											"key": "toDate",
+											"value": "2022-08-24"
+										},
+										{
+											"key": "order",
+											"value": "DESC"
+										},
+										{
+											"key": "skip",
+											"value": "0"
+										},
+										{
+											"key": "take",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-webappserver-https}}/api/arrivals?fromDate=2022-07-23&toDate=2022-07-24&order=DESC&skip=0&take=50",
+											"host": [
+												"{{url-webappserver-https}}"
+											],
+											"path": [
+												"api",
+												"arrivals"
+											],
+											"query": [
+												{
+													"key": "fromDate",
+													"value": "2022-07-23"
+												},
+												{
+													"key": "toDate",
+													"value": "2022-07-24"
+												},
+												{
+													"key": "order",
+													"value": "DESC"
+												},
+												{
+													"key": "skip",
+													"value": "0"
+												},
+												{
+													"key": "take",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 10:39:03 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"currentPage\": 1,\n    \"itemsPerPage\": 50,\n    \"totalPages\": 230,\n    \"totalItems\": 11489,\n    \"items\": [\n        {\n            \"id\": 10474,\n            \"dateArrival\": \"2022-07-24T14:35:20\",\n            \"employee\": {\n                \"id\": 555,\n                \"firstName\": \"Sam\",\n                \"lastName\": \"Short\",\n                \"email\": \"sam.short@fake.com\",\n                \"dateBirth\": \"1991-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10475,\n            \"dateArrival\": \"2022-07-24T14:35:20\",\n            \"employee\": {\n                \"id\": 666,\n                \"firstName\": \"Joseph\",\n                \"lastName\": \"Metcalfe\",\n                \"email\": \"joseph.metcalfe@fake.com\",\n                \"dateBirth\": \"1977-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6023,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1539,\n                \"firstName\": \"Victor\",\n                \"lastName\": \"Wallace\",\n                \"email\": \"victor.wallace@fake.com\",\n                \"dateBirth\": \"2004-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6037,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 765,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Nolan\",\n                \"email\": \"anthony.nolan@fake.com\",\n                \"dateBirth\": \"1974-07-23T22:58:55\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 6142,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2320,\n                \"firstName\": \"Joan\",\n                \"lastName\": \"Mackay\",\n                \"email\": \"joan.mackay@fake.com\",\n                \"dateBirth\": \"1987-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6281,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1730,\n                \"firstName\": \"Felicity\",\n                \"lastName\": \"Ogden\",\n                \"email\": \"felicity.ogden@fake.com\",\n                \"dateBirth\": \"1961-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 6670,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1675,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Chapman\",\n                \"email\": \"anthony.chapman@fake.com\",\n                \"dateBirth\": \"1978-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6772,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3295,\n                \"firstName\": \"Bernadette\",\n                \"lastName\": \"Anderson\",\n                \"email\": \"bernadette.anderson@fake.com\",\n                \"dateBirth\": \"1972-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 6803,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1913,\n                \"firstName\": \"Simon\",\n                \"lastName\": \"Turner\",\n                \"email\": \"simon.turner@fake.com\",\n                \"dateBirth\": \"1967-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7061,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3910,\n                \"firstName\": \"Warren\",\n                \"lastName\": \"Smith\",\n                \"email\": \"warren.smith@fake.com\",\n                \"dateBirth\": \"1957-07-23T22:59:02\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7066,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3157,\n                \"firstName\": \"Molly\",\n                \"lastName\": \"Lawrence\",\n                \"email\": \"molly.lawrence@fake.com\",\n                \"dateBirth\": \"1991-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7094,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3931,\n                \"firstName\": \"Nathan\",\n                \"lastName\": \"Smith\",\n                \"email\": \"nathan.smith@fake.com\",\n                \"dateBirth\": \"1961-07-23T22:59:03\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7247,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3412,\n                \"firstName\": \"Adam\",\n                \"lastName\": \"Robertson\",\n                \"email\": \"adam.robertson@fake.com\",\n                \"dateBirth\": \"1959-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7256,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2621,\n                \"firstName\": \"Donna\",\n                \"lastName\": \"Cornish\",\n                \"email\": \"donna.cornish@fake.com\",\n                \"dateBirth\": \"1974-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 7380,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1736,\n                \"firstName\": \"Emily\",\n                \"lastName\": \"Manning\",\n                \"email\": \"emily.manning@fake.com\",\n                \"dateBirth\": \"1975-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7419,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1779,\n                \"firstName\": \"Joe\",\n                \"lastName\": \"Lyman\",\n                \"email\": \"joe.lyman@fake.com\",\n                \"dateBirth\": \"1959-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7421,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3903,\n                \"firstName\": \"Alexandra\",\n                \"lastName\": \"Cornish\",\n                \"email\": \"alexandra.cornish@fake.com\",\n                \"dateBirth\": \"1979-07-23T22:59:02\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7498,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 7,\n                \"firstName\": \"Pippa\",\n                \"lastName\": \"Oliver\",\n                \"email\": \"pippa.oliver@fake.com\",\n                \"dateBirth\": \"1986-07-23T22:58:50\",\n                \"role\": {\n                    \"id\": 1,\n                    \"name\": \"Manager\"\n                }\n            }\n        },\n        {\n            \"id\": 7510,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3465,\n                \"firstName\": \"Sebastian\",\n                \"lastName\": \"Vaughan\",\n                \"email\": \"sebastian.vaughan@fake.com\",\n                \"dateBirth\": \"1993-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 7685,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1630,\n                \"firstName\": \"Dylan\",\n                \"lastName\": \"Metcalfe\",\n                \"email\": \"dylan.metcalfe@fake.com\",\n                \"dateBirth\": \"1993-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7768,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2669,\n                \"firstName\": \"Leonard\",\n                \"lastName\": \"Bower\",\n                \"email\": \"leonard.bower@fake.com\",\n                \"dateBirth\": \"1974-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7812,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2922,\n                \"firstName\": \"Richard\",\n                \"lastName\": \"Churchill\",\n                \"email\": \"richard.churchill@fake.com\",\n                \"dateBirth\": \"1993-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7821,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1493,\n                \"firstName\": \"Joanne\",\n                \"lastName\": \"Hamilton\",\n                \"email\": \"joanne.hamilton@fake.com\",\n                \"dateBirth\": \"1997-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7832,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3850,\n                \"firstName\": \"Lauren\",\n                \"lastName\": \"Cornish\",\n                \"email\": \"lauren.cornish@fake.com\",\n                \"dateBirth\": \"1960-07-23T22:59:02\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 7894,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1981,\n                \"firstName\": \"Adam\",\n                \"lastName\": \"Mackay\",\n                \"email\": \"adam.mackay@fake.com\",\n                \"dateBirth\": \"1972-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8186,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2659,\n                \"firstName\": \"Thomas\",\n                \"lastName\": \"Wilkins\",\n                \"email\": \"thomas.wilkins@fake.com\",\n                \"dateBirth\": \"1966-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 8234,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2836,\n                \"firstName\": \"Trevor\",\n                \"lastName\": \"Pullman\",\n                \"email\": \"trevor.pullman@fake.com\",\n                \"dateBirth\": \"1982-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8259,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3369,\n                \"firstName\": \"Nicholas\",\n                \"lastName\": \"North\",\n                \"email\": \"nicholas.north@fake.com\",\n                \"dateBirth\": \"1982-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 8264,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1653,\n                \"firstName\": \"Ryan\",\n                \"lastName\": \"Murray\",\n                \"email\": \"ryan.murray@fake.com\",\n                \"dateBirth\": \"1997-07-23T22:58:57\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8387,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2703,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Gray\",\n                \"email\": \"anthony.gray@fake.com\",\n                \"dateBirth\": \"1991-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8438,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2211,\n                \"firstName\": \"Sebastian\",\n                \"lastName\": \"Walker\",\n                \"email\": \"sebastian.walker@fake.com\",\n                \"dateBirth\": \"1980-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8496,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 21,\n                \"firstName\": \"Kimberly\",\n                \"lastName\": \"Newman\",\n                \"email\": \"kimberly.newman@fake.com\",\n                \"dateBirth\": \"1982-07-23T22:58:50\",\n                \"role\": {\n                    \"id\": 2,\n                    \"name\": \"Principal\"\n                }\n            }\n        },\n        {\n            \"id\": 8503,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2304,\n                \"firstName\": \"Connor\",\n                \"lastName\": \"Arnold\",\n                \"email\": \"connor.arnold@fake.com\",\n                \"dateBirth\": \"1976-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8616,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3338,\n                \"firstName\": \"Joseph\",\n                \"lastName\": \"Hart\",\n                \"email\": \"joseph.hart@fake.com\",\n                \"dateBirth\": \"1966-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8799,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1256,\n                \"firstName\": \"Amelia\",\n                \"lastName\": \"Powell\",\n                \"email\": \"amelia.powell@fake.com\",\n                \"dateBirth\": \"1981-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8831,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1430,\n                \"firstName\": \"Blake\",\n                \"lastName\": \"Scott\",\n                \"email\": \"blake.scott@fake.com\",\n                \"dateBirth\": \"1960-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 8943,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3191,\n                \"firstName\": \"David\",\n                \"lastName\": \"North\",\n                \"email\": \"david.north@fake.com\",\n                \"dateBirth\": \"1980-07-23T22:59:01\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9062,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2726,\n                \"firstName\": \"Joseph\",\n                \"lastName\": \"Harris\",\n                \"email\": \"joseph.harris@fake.com\",\n                \"dateBirth\": \"1967-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9140,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 753,\n                \"firstName\": \"Alan\",\n                \"lastName\": \"Ball\",\n                \"email\": \"alan.ball@fake.com\",\n                \"dateBirth\": \"1999-07-23T22:58:55\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9167,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2576,\n                \"firstName\": \"Samantha\",\n                \"lastName\": \"Peake\",\n                \"email\": \"samantha.peake@fake.com\",\n                \"dateBirth\": \"1969-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9186,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 313,\n                \"firstName\": \"Nathan\",\n                \"lastName\": \"Mackenzie\",\n                \"email\": \"nathan.mackenzie@fake.com\",\n                \"dateBirth\": \"1965-07-23T22:58:53\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9267,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2225,\n                \"firstName\": \"Jasmine\",\n                \"lastName\": \"Bell\",\n                \"email\": \"jasmine.bell@fake.com\",\n                \"dateBirth\": \"1983-07-23T22:58:58\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9296,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 143,\n                \"firstName\": \"Penelope\",\n                \"lastName\": \"Pullman\",\n                \"email\": \"penelope.pullman@fake.com\",\n                \"dateBirth\": \"1998-07-23T22:58:51\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9707,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2849,\n                \"firstName\": \"Lily\",\n                \"lastName\": \"Lewis\",\n                \"email\": \"lily.lewis@fake.com\",\n                \"dateBirth\": \"1978-07-23T22:59:00\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 9863,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 683,\n                \"firstName\": \"Ava\",\n                \"lastName\": \"Black\",\n                \"email\": \"ava.black@fake.com\",\n                \"dateBirth\": \"1992-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10045,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 809,\n                \"firstName\": \"Rachel\",\n                \"lastName\": \"Gibson\",\n                \"email\": \"rachel.gibson@fake.com\",\n                \"dateBirth\": \"1985-07-23T22:58:55\",\n                \"role\": {\n                    \"id\": 5,\n                    \"name\": \"Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10270,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 569,\n                \"firstName\": \"Eric\",\n                \"lastName\": \"Payne\",\n                \"email\": \"eric.payne@fake.com\",\n                \"dateBirth\": \"2002-07-23T22:58:54\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10371,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 1396,\n                \"firstName\": \"Virginia\",\n                \"lastName\": \"Hill\",\n                \"email\": \"virginia.hill@fake.com\",\n                \"dateBirth\": \"1959-07-23T22:58:56\",\n                \"role\": {\n                    \"id\": 4,\n                    \"name\": \"Junior Developer\"\n                }\n            }\n        },\n        {\n            \"id\": 10387,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 3,\n                \"firstName\": \"Anthony\",\n                \"lastName\": \"Welch\",\n                \"email\": \"anthony.welch@fake.com\",\n                \"dateBirth\": \"1966-07-23T22:58:50\",\n                \"role\": {\n                    \"id\": 1,\n                    \"name\": \"Manager\"\n                }\n            }\n        },\n        {\n            \"id\": 10553,\n            \"dateArrival\": \"2022-07-24T09:59:00\",\n            \"employee\": {\n                \"id\": 2680,\n                \"firstName\": \"Penelope\",\n                \"lastName\": \"Black\",\n                \"email\": \"penelope.black@fake.com\",\n                \"dateBirth\": \"1968-07-23T22:58:59\",\n                \"role\": {\n                    \"id\": 3,\n                    \"name\": \"Semi Senior Developer\"\n                }\n            }\n        }\n    ]\n}"
+								},
+								{
+									"name": "400 BadRequest (dates)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-webappserver-https}}/api/arrivals?fromDate=2022-07-24&toDate=2022-07-23&order=DESC&skip=0&take=50",
+											"host": [
+												"{{url-webappserver-https}}"
+											],
+											"path": [
+												"api",
+												"arrivals"
+											],
+											"query": [
+												{
+													"key": "fromDate",
+													"value": "2022-07-24"
+												},
+												{
+													"key": "toDate",
+													"value": "2022-07-23"
+												},
+												{
+													"key": "order",
+													"value": "DESC"
+												},
+												{
+													"key": "skip",
+													"value": "0"
+												},
+												{
+													"key": "take",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 10:39:56 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ErrorCode\": \"ValidationError\",\n        \"ErrorMessage\": \"'FromDate' must either before 'ToDate' or these should be equal.\"\n    }\n]"
+								},
+								{
+									"name": "400 BadRequest (order)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-webappserver-https}}/api/arrivals?fromDate=2022-07-23&toDate=2022-07-24&order=trololo&skip=0&take=50",
+											"host": [
+												"{{url-webappserver-https}}"
+											],
+											"path": [
+												"api",
+												"arrivals"
+											],
+											"query": [
+												{
+													"key": "fromDate",
+													"value": "2022-07-23"
+												},
+												{
+													"key": "toDate",
+													"value": "2022-07-24"
+												},
+												{
+													"key": "order",
+													"value": "trololo"
+												},
+												{
+													"key": "skip",
+													"value": "0"
+												},
+												{
+													"key": "take",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 11:03:10 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ErrorCode\": \"ValidationError\",\n        \"ErrorMessage\": \"'Order' must be either 'ASC', 'DESC' or empty.\"\n    }\n]"
+								},
+								{
+									"name": "400 BadRequest (take)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-webappserver-https}}/api/arrivals?fromDate=2022-07-23&toDate=2022-07-24&order=DESC&skip=0&take=0",
+											"host": [
+												"{{url-webappserver-https}}"
+											],
+											"path": [
+												"api",
+												"arrivals"
+											],
+											"query": [
+												{
+													"key": "fromDate",
+													"value": "2022-07-23"
+												},
+												{
+													"key": "toDate",
+													"value": "2022-07-24"
+												},
+												{
+													"key": "order",
+													"value": "DESC"
+												},
+												{
+													"key": "skip",
+													"value": "0"
+												},
+												{
+													"key": "take",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 11:03:45 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ErrorCode\": \"ValidationError\",\n        \"ErrorMessage\": \"'Take' must be either a positive integer or empty.\"\n    }\n]"
+								},
+								{
+									"name": "400 BadRequest (skip)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-webappserver-https}}/api/arrivals?fromDate=2022-07-23&toDate=2022-07-24&order=DESC&skip=-10&take=50",
+											"host": [
+												"{{url-webappserver-https}}"
+											],
+											"path": [
+												"api",
+												"arrivals"
+											],
+											"query": [
+												{
+													"key": "fromDate",
+													"value": "2022-07-23"
+												},
+												{
+													"key": "toDate",
+													"value": "2022-07-24"
+												},
+												{
+													"key": "order",
+													"value": "DESC"
+												},
+												{
+													"key": "skip",
+													"value": "-10"
+												},
+												{
+													"key": "take",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 11:04:11 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ErrorCode\": \"ValidationError\",\n        \"ErrorMessage\": \"'Skip' must be either a nonnegative integer or empty.\"\n    }\n]"
+								},
+								{
+									"name": "400 BadRequest (fromDate)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Fourth-Token",
+												"value": "3e41c39c4b114e01966ac3c6f9d3cce5",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url-webappserver-https}}/api/arrivals?fromDate=2022-07-23&toDate=2022-08-24&order=DESC&skip=0&take=50",
+											"host": [
+												"{{url-webappserver-https}}"
+											],
+											"path": [
+												"api",
+												"arrivals"
+											],
+											"query": [
+												{
+													"key": "fromDate",
+													"value": "2022-07-23"
+												},
+												{
+													"key": "toDate",
+													"value": "2022-08-24"
+												},
+												{
+													"key": "order",
+													"value": "DESC"
+												},
+												{
+													"key": "skip",
+													"value": "0"
+												},
+												{
+													"key": "take",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "JSON",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 24 Jul 2022 11:10:55 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[{\"ErrorCode\":\"ValidationError\",\"ErrorMessage\":\"'toDate' and 'fromDate' must be either today or in the past.\"}]"
+								}
+							]
+						}
+					]
+				}
+			]
 		}
 	],
 	"event": [
@@ -241,8 +1146,33 @@
 	],
 	"variable": [
 		{
-			"key": "url-callback",
-			"value": "http://localhost:8000"
+			"key": "url-webappserver-https",
+			"value": "https://localhost:7168"
+		},
+		{
+			"key": "url-webappserver-http",
+			"value": "http://localhost:5168",
+			"type": "default"
+		},
+		{
+			"key": "url-webappclient-https",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "url-webappclient-http",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "url-webservice-https",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "url-webservice-http",
+			"value": "http://localhost:51396",
+			"type": "default"
 		}
 	]
 }

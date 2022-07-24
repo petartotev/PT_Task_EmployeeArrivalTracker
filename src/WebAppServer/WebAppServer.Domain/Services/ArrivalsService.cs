@@ -2,21 +2,32 @@
 using WebAppServer.Repository.Interfaces;
 using WebAppServer.V1.Contracts;
 using WebAppServer.Domain.Mappers;
+using Bede.Cashier.V2.Application.Common.Validation.Interfaces;
+using FluentValidation;
 
 namespace WebAppServer.Domain.Services;
 
 public class ArrivalsService : IArrivalsService
 {
+    private readonly IRequestValidator _requestValidator;
+    private readonly IValidator<ArrivalRequestContract> _arrivalsRequestValidator;
     private readonly IArrivalRepository _arrivalRepository;
 
-    public ArrivalsService(IArrivalRepository arrivalRepository)
+    public ArrivalsService(
+        IRequestValidator requestValidator,
+        IValidator<ArrivalRequestContract> arrivalsRequestValidator,
+        IArrivalRepository arrivalRepository)
     {
+        _requestValidator = requestValidator;
+        _arrivalsRequestValidator = arrivalsRequestValidator;
         _arrivalRepository = arrivalRepository;
     }
 
-    public async Task<Page<ArrivalResponseContract>> GetArrivalsAsync(ArrivalRequestContract requestContract)
+    public async Task<Page<ArrivalResponseContract>> GetArrivalsAsync(ArrivalRequestContract request)
     {
-        var requestDomain = requestContract.ToDomainModel();
+        _requestValidator.Validate(_arrivalsRequestValidator, request);
+
+        var requestDomain = request.ToDomainModel();
 
         var result = await _arrivalRepository.GetAllAsync(
             requestDomain.FromDate,

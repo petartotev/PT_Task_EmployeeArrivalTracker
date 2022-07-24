@@ -2,7 +2,7 @@ import React from 'react';
 import './Table.css';
 
 const Table = ({ arrivals }) => {
-    function getDayAbbreviationFromNumber(number) {
+    function getDayOfWeekAbbreviationFromNumber(number) {
         let abbr;
         switch (number) {
             case 0:
@@ -32,12 +32,12 @@ const Table = ({ arrivals }) => {
         return abbr;
     }
 
-    function getAge(dateString) {
-        var today = new Date();
-        var birthDate = new Date(dateString);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    function getAgeFromDateBirth(dateString) {
+        let today = new Date();
+        let birthDate = new Date(dateString);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let month = today.getMonth() - birthDate.getMonth();
+        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
             age--;
         }
         return age;
@@ -61,11 +61,11 @@ const Table = ({ arrivals }) => {
                     {arrivals.map(arrival => (
                         <tr key={arrival.id}>
                             <td><b>{new Date(arrival.dateArrival).getFullYear()}-{(new Date(arrival.dateArrival).getMonth() + 1).toString().padStart(2, '0')}-{new Date(arrival.dateArrival).getDate()}</b></td>
-                            <td><b className="text-primary">{getDayAbbreviationFromNumber(new Date(arrival.dateArrival).getDay())}</b></td>
+                            <td><b className="text-primary">{getDayOfWeekAbbreviationFromNumber(new Date(arrival.dateArrival).getDay())}</b></td>
                             <td><b>{(new Date(arrival.dateArrival).getHours()).toString().padStart(2, '0')}:{(new Date(arrival.dateArrival).getMinutes()).toString().padStart(2, '0')}:{(new Date(arrival.dateArrival).getSeconds()).toString().padStart(2, '0')}</b></td>
                             <td>{arrival.employee.firstName} {arrival.employee.lastName}</td>
                             <td>{arrival.employee.email}</td>
-                            <td>{getAge(arrival.employee.dateBirth)}</td>
+                            <td>{getAgeFromDateBirth(arrival.employee.dateBirth)}</td>
                             <td>{arrival.employee.role.name}</td>
                         </tr>
                     ))}

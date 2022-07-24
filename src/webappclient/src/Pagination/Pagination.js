@@ -3,19 +3,19 @@ import './Pagination.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Pagination = (props) => {
-    function isEdgeConditionFirstButton() {
+    function isButtonFirstOnEdge() {
         return props.page.currentPage <= 1;
     }
 
-    function isEdgeConditionPreviousButton() {
+    function isButtonPreviousOnEdge() {
         return props.page.totalPages <= 1 || props.page.currentPage <= 1;
     }
 
-    function isEdgeConditionNextButton() {
+    function isButtonNextOnEdge() {
         return props.page.totalPages <= 1 || props.page.currentPage + 1 > props.page.totalPages;
     }
 
-    function isEdgeConditionLastButton() {
+    function isButtonLastOnEdge() {
         return props.page.currentPage === props.page.totalPages || props.page.totalPages === 0;
     }
 
@@ -39,11 +39,11 @@ const Pagination = (props) => {
         <div className="row m-3">
             <div className="col-md-4"></div>
             <div className="col-md-4 d-flex justify-content-evenly">
-                <button className="btn btn-dark text-light rounded-pill" onClick={buttonFirstClicked} disabled={isEdgeConditionFirstButton()}><FontAwesomeIcon icon="fa-solid fa-angles-left" size="lg" /></button>
-                <button className="btn btn-dark text-light rounded-pill" onClick={buttonPreviousClicked} disabled={isEdgeConditionPreviousButton()}><FontAwesomeIcon icon="fa-solid fa-chevron-left" size="lg" /></button>
+                <button className="btn btn-dark text-light rounded-pill" onClick={buttonFirstClicked} disabled={isButtonFirstOnEdge()}><FontAwesomeIcon icon="fa-solid fa-angles-left" size="lg" /></button>
+                <button className="btn btn-dark text-light rounded-pill" onClick={buttonPreviousClicked} disabled={isButtonPreviousOnEdge()}><FontAwesomeIcon icon="fa-solid fa-chevron-left" size="lg" /></button>
                 <p className="h2">{props.page.currentPage}/{props.page.totalPages}</p>
-                <button className="btn btn-dark text-light rounded-pill" onClick={buttonNextClicked} disabled={isEdgeConditionNextButton()}><FontAwesomeIcon icon="fa-solid fa-chevron-right" size="lg" /></button>
-                <button className="btn btn-dark text-light rounded-pill" onClick={buttonLastClicked} disabled={isEdgeConditionLastButton()}><FontAwesomeIcon icon="fa-solid fa-angles-right" size="lg" /></button>
+                <button className="btn btn-dark text-light rounded-pill" onClick={buttonNextClicked} disabled={isButtonNextOnEdge()}><FontAwesomeIcon icon="fa-solid fa-chevron-right" size="lg" /></button>
+                <button className="btn btn-dark text-light rounded-pill" onClick={buttonLastClicked} disabled={isButtonLastOnEdge()}><FontAwesomeIcon icon="fa-solid fa-angles-right" size="lg" /></button>
             </div>
         </div>
     );

@@ -1,23 +1,10 @@
 import React from 'react';
-import "./Filter.css";
 import { useState } from "react";
+import "./Filter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Filter = (props) => {
-    const [filterForm, setFilterForm] = useState({
-        fromDate: getDate(),
-        toDate: getDate(),
-        order: "DESC",
-        pageCount: 50
-    });
-
-    function getDate() {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        var yyyy = today.getFullYear();
-        return yyyy + "-" + mm + "-" + dd;
-    }
+    const [filterForm, setFilterForm] = useState(props.defaultFilter);
 
     const onChange = (e) => {
         setFilterForm({ ...filterForm, [e.target.id]: e.target.value });
@@ -25,7 +12,7 @@ const Filter = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit! Here is the object to submit:");
+        console.log("Submit from Filter! Home will now print the filter values...");
         props.parentFunction(filterForm);
     };
 
@@ -59,7 +46,7 @@ const Filter = (props) => {
                             &nbsp;items&nbsp;
                         </div>
                         <div className="d-flex justify-content-center mb-3">
-                            <button className="btn btn-bg btn-primary rounded-pill" disabled={!filterForm.fromDate || !filterForm.toDate || !filterForm.order} onClick={onSubmit}>
+                            <button className="btn btn-bg btn-dark rounded-pill" disabled={!filterForm.fromDate || !filterForm.toDate || !filterForm.order} onClick={onSubmit}>
                                 &nbsp;<FontAwesomeIcon icon="rocket" size="2x" />&nbsp;
                             </button>
                         </div>

@@ -1,6 +1,6 @@
 # 'Employee Arrival Tracker' Coding Exercise
 
-![cover](res/Images/cover.jpg)
+![cover](res/Images/cover.png)
 
 ## Solution Contents
 

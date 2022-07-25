@@ -23,6 +23,7 @@ public class ArrivalsController : ControllerBase
     [Produces(MediaTypeNames.Application.Json)]
     [SwaggerOperation(SwaggerConstants.Arrivals.GetAll.Summary, SwaggerConstants.Arrivals.GetAll.Description)]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Error[]))]
     public async Task<IActionResult> GetAll([FromQuery] ArrivalRequestContract request)
     {
         var result = await _arrivalsService.GetArrivalsAsync(request);

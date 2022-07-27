@@ -5,6 +5,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using WebAppServer.Api.Swagger;
 using WebAppServer.Domain.Services.Interfaces;
 using WebAppServer.V1.Contracts;
+using WebAppServer.V1.Contracts.Common;
 
 namespace WebAppServer.Api.Controllers;
 

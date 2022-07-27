@@ -1,7 +1,28 @@
 import React from 'react';
+import { useEffect, useState } from "react";
 import './Table.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Table = ({ arrivals }) => {
+    const [showButton, setShowButton] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        });
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     function getDayOfWeekAbbreviationFromNumber(number) {
         let abbr;
         switch (number) {
@@ -71,6 +92,11 @@ const Table = ({ arrivals }) => {
                     ))}
                 </tbody>
             </table>
+            {showButton && (
+                <button onClick={scrollToTop} className="back-to-top">
+                    <FontAwesomeIcon icon="fa-solid fa-arrow-up" size="sm" />
+                </button>
+            )}
         </div>
     );
 }

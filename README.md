@@ -9,7 +9,7 @@
         - http://localhost:51396
     - **WebAppServer** - a new BE .NET Web API app which subscribes to WebService, receives reports and stores them in its database
         - https://localhost:7168
-    - **webappclient** - a new FE React app which fetches data from WebAppServer and visualizes it in an interactive table
+    - **webappclient** - a new FE React app which fetches data from WebAppServer and visualizes it in a table
         - http://localhost:3000
 - res
     - Postman - a collection of requests (with examples) for WebAppServer and WebService

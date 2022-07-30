@@ -20,7 +20,7 @@
 
 ---
 
-## WebAppService Architecture
+## WebAppServer Architecture
 
 ![WebAppServer Arcihtecture](res/Images/WebAppServer_Architecture.jpg)
 

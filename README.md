@@ -1,5 +1,7 @@
 # 'Employee Arrival Tracker' Coding Exercise
 
+## General Information
+
 ![cover](res/Images/cover.png)
 
 ## Solution Contents
@@ -18,13 +20,13 @@
 
 ---
 
-## Proposed Architecture
+## WebAppService Architecture
 
 ![WebAppServer Arcihtecture](res/Images/WebAppServer_Architecture.jpg)
 
 ---
 
-## Startup
+## Solution Startup
 
 ### 1. Run **WebService** (existing "3rd party" app) - http://localhost:51396/
 - You should have the web service running locally on **port 51396**.

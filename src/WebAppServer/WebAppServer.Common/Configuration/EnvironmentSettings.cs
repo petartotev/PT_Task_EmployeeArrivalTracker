@@ -8,7 +8,7 @@ public class EnvironmentSettings : IDbSettings
     {
         get
         {
-            return "Server=localhost,1433;Database=EmployeeArrivalTracker;Trusted_Connection=True;MultipleActiveResultSets=true";
+            return "Server=192.***.*.***,1433;Database=EmployeeArrivalTracker;User Id=**********;Password=********;MultipleActiveResultSets=true;";
         }
     }
 

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webappserver-depl
+  name: webappserver-deployment
 spec:
   replicas: 1
   selector:
@@ -16,6 +16,7 @@ spec:
         - name: webappserver
           image: <docker-hub-id>/webappserverimage:latest
 
-# kubectl apply -f webappserver-depl.yaml
+# kubectl apply -f webappserver-deployment.yaml
 # kubectl get deployments
 # kubectl get pods
+# kubectl delete deployment webappserver-deployment

@@ -1,0 +1,27 @@
+##### webappclient #####
+
+# cd => webappclient/Dockerfile
+
+docker build -t <docker-hub-id>/webappclientimage .
+docker push <docker-hub-id>/webappclientimage
+docker run -p 3000:3000 --name webappclientcontainer -d <docker-hub-id>/webappclientimage
+
+# cd => k8s/webappclient-depl.yaml
+
+kubectl apply -f webappclient-depl.yaml
+kubectl get deployments
+kubectl get pods
+
+##### WebAppServer #####
+
+# cd => WebAppServer/Dockerfile
+
+docker build -t <docker-hub-id>/webappserverimage .
+docker push <docker-hub-id>/webappserverimage
+docker run -p 5168:80 --name webappservercontainer -d <docker-hub-id>/webappserverimage
+
+# cd => k8s/webappserver-depl.yaml
+
+kubectl apply -f webappserver-depl.yaml
+kubectl get deployments
+kubectl get pods

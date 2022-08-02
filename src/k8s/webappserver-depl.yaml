@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webappserver-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webappserver
+  template:
+    metadata:
+      labels:
+        app: webappserver
+    spec:
+      containers:
+        - name: webappserver
+          image: <docker-hub-id>/webappserverimage:latest
+
+# kubectl apply -f webappserver-depl.yaml
+# kubectl get deployments
+# kubectl get pods

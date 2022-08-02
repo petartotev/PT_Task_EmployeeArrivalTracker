@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webappclient-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webappclient
+  template:
+    metadata:
+      labels:
+        app: webappclient
+    spec:
+      containers:
+        - name: webappclient
+          image: <docker-hub-id>/webappclientimage:latest
+
+# kubectl apply -f webappclient-depl.yaml
+# kubectl get deployments
+# kubectl get pods

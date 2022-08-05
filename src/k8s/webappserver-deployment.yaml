@@ -3,20 +3,71 @@ kind: Deployment
 metadata:
   name: webappserver-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: webappserver
+      tier: webappserver-deployment
   template:
     metadata:
       labels:
         app: webappserver
+        tier: webappserver-deployment
     spec:
       containers:
         - name: webappserver
-          image: <docker-hub-id>/webappserverimage:latest
+          image: petartotev/webappserverimage:latest
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: webappserver
+# spec:
+#   selector:
+#     app: webappserver
+#     tier: webappserver-deployment
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#     targetPort: http
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: webappserver-loadbalancer-service
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     app: webappserver
+#   ports:
+#   - port: 80
+#     targetPort: 80
+#     protocol: TCP
+#     nodePort: 31000
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: webappserver-clusterip-service
+# spec:
+#   type: ClusterIP
+#   selector:
+#     app: webappserver
+#   ports:
+#   - name: webappserver
+#     protocol: TCP
+#     port: 80
+#     targetPort: 80
+
+########################################
 
 # kubectl apply -f webappserver-deployment.yaml
+
+# kubectl get all
+# kubectl get services
 # kubectl get deployments
 # kubectl get pods
+
+# kubectl delete service webappserver-loadbalancer-service
+# kubectl delete service webappserver-clusterip-service
 # kubectl delete deployment webappserver-deployment

@@ -21,7 +21,11 @@ CMD ["npm", "start"]
 
 ########################################
 
+# cd ../webappclient
 # docker build -t <docker-hub-id>/webappclientimage .
+# docker login
 # docker push <docker-hub-id>/webappclientimage
+
 # docker run -p 3000:3000 --name webappclientcontainer -d <docker-hub-id>/webappclientimage
+
 # http://localhost:3000

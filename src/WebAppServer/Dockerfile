@@ -16,7 +16,11 @@ ENTRYPOINT ["dotnet", "WebAppServer.Api.dll", "--environment=Development"]
 
 ########################################
 
+# cd ../WebAppServer
 # docker build -t <docker-hub-id>/webappserverimage .
+# docker login
 # docker push <docker-hub-id>/webappserverimage
+
 # docker run -p 5168:80 --name webappservercontainer -d <docker-hub-id>/webappserverimage
+
 # http://localhost:5168/api/arrivals

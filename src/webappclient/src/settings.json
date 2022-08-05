@@ -1,4 +1,6 @@
 {
     "webserver_url": "http://localhost:5168/api/",
     "webserver_url_arrivals": "http://localhost:5168/api/arrivals"
+    // "webserver_url": "http://webappserver:80/api/",
+    // "webserver_url_arrivals": "http://webappserver:80/api/arrivals"
 }

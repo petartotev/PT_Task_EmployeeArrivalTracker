@@ -1,4 +1,60 @@
-#################### webappclient ####################
+######################################## COMMON ########################################
+
+# DOCKER REMOVE
+
+docker image rm <docker-hub-id>/webappclientimage
+docker image rm <docker-hub-id>/webappserverimage
+docker image rm webappclientimage
+docker image rm webappserverimage
+
+# DOCKER BUILD AND PUSH
+
+cd ../webappclient
+docker build -t <docker-hub-id>/webappclientimage .
+docker login
+docker push <docker-hub-id>/webappclientimage
+
+cd ../WebAppServer
+docker build -t <docker-hub-id>/webappserverimage .
+docker login
+docker push <docker-hub-id>/webappserverimage
+
+docker run -p 5168:80 --name webappservercontainer -d <docker-hub-id>/webappserverimage
+docker run -p 3000:3000 --name webappclientcontainer -d <docker-hub-id>/webappclientimage
+
+# KUBERNETES DELETE
+
+kubectl delete service webappserver-clusterip-service
+kubectl delete service webappserver-loadbalancer-service
+kubectl delete deployment webappserver-deployment
+kubectl delete service webappclient-clusterip-service
+kubectl delete service webappclient-nodeport-service
+kubectl delete deployment webappclient-deployment
+
+# KUBERNETES CREATE
+
+kubectl apply -f webappclient-deployment.yaml
+kubectl apply -f webappserver-deployment.yaml
+
+# KUBERNETES CHECK`
+
+? kubectl describe services webappserver-loadbalancer-service
+
+######################################## DOCKER ########################################
+
+#################### WebAppServer - Docker ####################
+
+# cd => WebAppServer/Dockerfile
+
+docker build -t <docker-hub-id>/webappserverimage .
+docker push <docker-hub-id>/webappserverimage
+docker run -p 5168:80 --name webappservercontainer -d <docker-hub-id>/webappserverimage
+
+docker ps
+docker stop 0fc9c3bfcb7a
+docker start 0fc9c3bfcb7a
+
+#################### webappclient - Docker ####################
 
 # cd => webappclient/Dockerfile
 
@@ -6,19 +62,13 @@ docker build -t <docker-hub-id>/webappclientimage .
 docker push <docker-hub-id>/webappclientimage
 docker run -p 3000:3000 --name webappclientcontainer -d <docker-hub-id>/webappclientimage
 
-# cd => k8s/webappclient-deployment.yaml
+######################################## KUBERNETES ########################################
 
-kubectl apply -f webappclient-deployment.yaml
-kubectl get deployments
-kubectl get pods
 
-#################### WebAppServer ####################
 
-# cd => WebAppServer/Dockerfile
+#################### WebAppServer - Kubernetes ####################
 
-docker build -t <docker-hub-id>/webappserverimage .
-docker push <docker-hub-id>/webappserverimage
-docker run -p 5168:80 --name webappservercontainer -d <docker-hub-id>/webappserverimage
+########## WebAppServer - Deploy ##########
 
 # cd => k8s/webappserver-deployment.yaml
 
@@ -32,3 +82,11 @@ kubectl get pods
 
 kubectl apply -f webappserver-nodeport-service.yaml
 kubectl get services # get node port from the output list
+
+#################### webappclient - Kubernetes ####################
+
+# cd => k8s/webappclient-deployment.yaml
+
+kubectl apply -f webappclient-deployment.yaml
+kubectl get deployments
+kubectl get pods

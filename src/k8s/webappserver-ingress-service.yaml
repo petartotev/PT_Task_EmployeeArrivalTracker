@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webappserver-ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: arrivaltracker.net
+      http:
+        paths:
+          - path: /api/arrivals
+            pathType: Prefix
+            backend:
+              service:
+                name: webappserver-clusterip-service
+                port:
+                  number: 80
+
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/aws/deploy.yaml
+# C:\Windows\System32\drivers\etc\hosts => add "127.0.0.1 arrivaltracker.net"
+# kubectl apply -f webappserver-ingress-service.yaml

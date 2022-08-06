@@ -35,6 +35,7 @@ kubectl delete deployment webappclient-deployment
 
 kubectl apply -f webappclient-deployment.yaml
 kubectl apply -f webappserver-deployment.yaml
+kubectl apply -f webappserver-ingress-service.yaml
 
 # KUBERNETES CHECK`
 

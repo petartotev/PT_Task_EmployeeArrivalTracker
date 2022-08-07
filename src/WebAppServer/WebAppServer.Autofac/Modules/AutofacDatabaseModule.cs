@@ -2,8 +2,6 @@
 using Dapperer;
 using Dapperer.DbFactories;
 using Dapperer.QueryBuilders.MsSql;
-using WebAppServer.Common.Configuration;
-using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Repository;
 using WebAppServer.Repository.DbUp;
 using WebAppServer.Repository.DbUp.Interfaces;
@@ -16,7 +14,6 @@ public class AutofacDatabaseModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
-        builder.RegisterType<EnvironmentSettings>().As<IDbSettings>().SingleInstance();
         builder.RegisterType<DatabaseUpgrader>().As<IDatabaseUpgrader>().SingleInstance();
         builder.RegisterType<DatabaseSeeder>().As<IDatabaseSeeder>().SingleInstance();
 

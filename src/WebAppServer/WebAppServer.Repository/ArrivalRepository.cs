@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using Dapper;
 using Dapperer;
 using Serilog;
-using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Common.Constants;
 using WebAppServer.Entities;
 using WebAppServer.Repository.Interfaces;
@@ -12,19 +11,19 @@ namespace WebAppServer.Repository;
 
 public class ArrivalRepository : Repository<ArrivalEntity, int>, IArrivalRepository
 {
-    private readonly IDbSettings _dbSettings;
+    private readonly IDappererSettings _settings;
 
-    public ArrivalRepository(IQueryBuilder queryBuilder, IDbFactory dbFactory, IDbSettings dbSettings)
+    public ArrivalRepository(IQueryBuilder queryBuilder, IDbFactory dbFactory, IDappererSettings settings)
         : base(queryBuilder, dbFactory)
     {
-        _dbSettings = dbSettings;
+        _settings = settings;
     }
 
     public async Task CreateAsync(int employeeId, DateTime dateTime)
     {
         var sql = $"INSERT INTO [dbo].[Arrivals] ([EmployeeId], [DateArrival]) VALUES(N'{employeeId}', N'{dateTime}')";
 
-        using (var connection = new SqlConnection(_dbSettings.ConnectionString))
+        using (var connection = new SqlConnection(_settings.ConnectionString))
         {
             try
             {
@@ -78,7 +77,7 @@ public class ArrivalRepository : Repository<ArrivalEntity, int>, IArrivalReposit
     {
         var sql = $"SELECT COUNT([Id]) FROM [dbo].[Arrivals]";
 
-        using (var connection = new SqlConnection(_dbSettings.ConnectionString))
+        using (var connection = new SqlConnection(_settings.ConnectionString))
         {
             return (await connection.QueryAsync<int>(sql)).SingleOrDefault();
         }

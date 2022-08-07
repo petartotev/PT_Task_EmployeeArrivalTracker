@@ -1,8 +1,8 @@
 ﻿using Hangfire;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Serilog;
 using WebAppServer.Common;
-using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Common.Constants;
 using WebAppServer.Domain.Models;
 using WebAppServer.Domain.Services.Interfaces;
@@ -12,13 +12,15 @@ namespace WebAppServer.Domain.Services;
 public class SubscriptionHandler : ISubscriptionHandler
 {
     private string _token;
-    private readonly IDbSettings _settings;
+    private readonly string _urlWebService;
+    private readonly IConfiguration _settings;
     private readonly IHttpClientFactory _clientFactory;
 
-    public SubscriptionHandler(IDbSettings settings, IHttpClientFactory clientFactory)
+    public SubscriptionHandler(IConfiguration settings, IHttpClientFactory clientFactory)
     {
         _clientFactory = clientFactory;
         _settings = settings;
+        _urlWebService = string.Format(_settings.GetSection("WebService")["Url"], DateTime.Now.ToString("yyyy-MM-dd"));
     }
 
     public bool ValidateIncomingToken(string token)
@@ -30,7 +32,7 @@ public class SubscriptionHandler : ISubscriptionHandler
     {
         try
         {
-            await SubscribeToWebServiceAsync(callbackUrl);
+            await SubscribeToWebServiceAsync(callbackUrl ?? _urlWebService);
         }
         catch (Exception ex)
         {
@@ -45,7 +47,7 @@ public class SubscriptionHandler : ISubscriptionHandler
         var client = _clientFactory.CreateClient(CommonConstants.Application.HttpClientName);
         client.DefaultRequestHeaders.Add(Header.ExternalApi.WebService.AcceptClientKey, Header.ExternalApi.WebService.AcceptClientValue);
 
-        var response = await client.GetAsync(callbackUrl ?? _settings.ConnectionUrlWebService);
+        var response = await client.GetAsync(callbackUrl ?? _urlWebService);
 
         if (response.IsSuccessStatusCode)
         {

@@ -1,16 +1,16 @@
 ﻿using Dapperer;
-using WebAppServer.Common.Configuration.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace WebAppServer.Repository;
 
 public class DappererSettings : IDappererSettings
 {
-    private readonly IDbSettings _settings;
+    private readonly IConfiguration _configuration;
 
-    public DappererSettings(IDbSettings settings)
+    public DappererSettings(IConfiguration configuration)
     {
-        _settings = settings;
+        _configuration = configuration;
     }
 
-    public string ConnectionString => _settings.ConnectionString;
+    public string ConnectionString => _configuration.GetConnectionString("DefaultConnection");
 }

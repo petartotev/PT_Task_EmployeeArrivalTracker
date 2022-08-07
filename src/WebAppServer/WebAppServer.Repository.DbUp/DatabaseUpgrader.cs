@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
+using Dapperer;
 using DbUp;
 using Serilog;
-using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Common.Constants;
 using WebAppServer.Repository.DbUp.Interfaces;
 
@@ -9,9 +9,9 @@ namespace WebAppServer.Repository.DbUp;
 
 public class DatabaseUpgrader : IDatabaseUpgrader
 {
-    private readonly IDbSettings _settings;
+    private readonly IDappererSettings _settings;
 
-    public DatabaseUpgrader(IDbSettings settings)
+    public DatabaseUpgrader(IDappererSettings settings)
     {
         _settings = settings;
     }

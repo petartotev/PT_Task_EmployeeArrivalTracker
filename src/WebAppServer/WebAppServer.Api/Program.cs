@@ -7,7 +7,6 @@ using WebAppServer.Api.Extensions;
 using WebAppServer.Api.Middlewares;
 using WebAppServer.Api.Policies;
 using WebAppServer.Autofac;
-using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Common.Constants;
 using WebAppServer.Domain.Services.Interfaces;
 using WebAppServer.Repository.DbUp.Interfaces;
@@ -75,6 +74,6 @@ await app.Services
 // Subscribe to WebService:
 await app.Services
     .GetService<ISubscriptionHandler>()
-    .SubscribeAsync(app.Services.GetService<IDbSettings>().ConnectionUrlWebService);
+    .SubscribeAsync();
 
 app.Run();

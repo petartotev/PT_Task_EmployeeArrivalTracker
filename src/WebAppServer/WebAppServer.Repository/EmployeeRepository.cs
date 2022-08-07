@@ -2,7 +2,6 @@
 using Dapper;
 using Dapperer;
 using Serilog;
-using WebAppServer.Common.Configuration.Interfaces;
 using WebAppServer.Common.Constants;
 using WebAppServer.Entities;
 using WebAppServer.Repository.Interfaces;
@@ -11,10 +10,10 @@ namespace WebAppServer.Repository;
 
 public class EmployeeRepository : Repository<EmployeeEntity, int>, IEmployeeRepository
 {
-    private readonly IDbSettings _settings;
+    private readonly IDappererSettings _settings;
     private readonly IRoleRepository _roleRepository;
 
-    public EmployeeRepository(IQueryBuilder queryBuilder, IDbFactory dbFactory, IDbSettings settings, IRoleRepository roleRepository)
+    public EmployeeRepository(IQueryBuilder queryBuilder, IDbFactory dbFactory, IDappererSettings settings, IRoleRepository roleRepository)
         : base(queryBuilder, dbFactory)
     {
         _settings = settings;

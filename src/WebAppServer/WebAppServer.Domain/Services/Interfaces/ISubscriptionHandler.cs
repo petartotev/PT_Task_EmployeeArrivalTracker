@@ -2,7 +2,7 @@
 
 public interface ISubscriptionHandler
 {
-    Task SubscribeAsync(string callbackUrl);
+    Task SubscribeAsync(string callbackUrl = null);
 
     bool ValidateIncomingToken(string token);
 }

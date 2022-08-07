@@ -19,6 +19,8 @@
   <ItemGroup>
     <ProjectReference Include="..\WebAppServer.Autofac\WebAppServer.Autofac.csproj" />
     <ProjectReference Include="..\WebAppServer.V1.Contracts\WebAppServer.V1.Contracts.csproj" />
+    <!--The line below gives TestsInfrastructure project access to Program.cs in order for it to create WebApplicationFactory-->
+    <InternalsVisibleTo Include="WebAppServer.Tests.Infrastructure" />
   </ItemGroup>
 
 </Project>

@@ -6,8 +6,7 @@ public class BaseTests
 {
     public BaseTests()
     {
-        var factory = new WebApplicationFactory<Program>();
-        Client = factory.CreateClient();
+        Client = new WebApplicationFactory<Program>().CreateClient();
     }
 
     public HttpClient Client { get; set; }

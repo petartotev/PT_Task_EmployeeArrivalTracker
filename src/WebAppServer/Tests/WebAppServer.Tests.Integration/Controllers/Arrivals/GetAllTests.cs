@@ -16,21 +16,22 @@ public class GetAllTests : BaseTests
         var response = await Client.GetAsync(GetUrl(null, null, null, null, null));
 
         // Assert
-        Assert.ResponseIsSuccess(response);
+        Assert.Response.IsSuccess(response);
     }
 
     [Test]
     public async Task WithAllParamsUsedAndValid_ReturnsOk()
     {
         // Arrange
-        var fromDate = DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd");
+        var fromDate = DateTime.Today.AddDays(-14).ToString("yyyy-MM-dd");
         var toDate = DateTime.Today.AddDays(-2).ToString("yyyy-MM-dd");
 
         // Act
         var response = await Client.GetAsync(GetUrl(fromDate, toDate, "ASC", "0", "50"));
+        var content = await response.Content.ReadAsStringAsync();
 
         // Assert
-        Assert.ResponseIsSuccess(response);
+        Assert.Response.IsSuccess(response);
     }
 
     // ==================== Negative Scenarios ====================
@@ -45,7 +46,7 @@ public class GetAllTests : BaseTests
         var response = await Client.GetAsync(GetUrl(fromDate, toDate, null, null, null));
 
         // Assert
-        await Assert.ResponseIsFailAsync(
+        await Assert.Response.IsFailAsync(
             response,
             System.Net.HttpStatusCode.BadRequest,
             ErrorCodes.ValidationError
@@ -63,7 +64,7 @@ public class GetAllTests : BaseTests
         var response = await Client.GetAsync(GetUrl(fromDate, toDate, null, null, null));
 
         // Assert
-        await Assert.ResponseIsFailAsync(
+        await Assert.Response.IsFailAsync(
             response,
             System.Net.HttpStatusCode.BadRequest,
             ErrorCodes.ValidationError.AsError(string.Format(ErrorMessages.RequestValidation.DateFromProvidedMustBeBeforeDateTo, "FromDate", "ToDate")));

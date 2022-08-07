@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
+using WebAppServer.Tests.Infrastructure.Asserts;
 
 namespace WebAppServer.Tests.Infrastructure.Tests;
 
-public class BaseTests
+public abstract class BaseTests
 {
     public BaseTests()
     {
@@ -11,5 +12,5 @@ public class BaseTests
 
     public HttpClient Client { get; set; }
 
-    public Asserts.Assert Assert { get; set; } = new ();
+    public Asserter Assert { get; set; } = new ();
 }

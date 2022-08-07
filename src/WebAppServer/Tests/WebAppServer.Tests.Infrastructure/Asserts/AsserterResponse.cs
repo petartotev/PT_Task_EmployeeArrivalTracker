@@ -5,17 +5,17 @@ using WebAppServer.V1.Contracts.Common;
 
 namespace WebAppServer.Tests.Infrastructure.Asserts;
 
-public class Assert
+public class AsserterResponse
 {
-    public void ResponseIsSuccess(
-        HttpResponseMessage response,
-        HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
+    public void IsSuccess(
+    HttpResponseMessage response,
+    HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
     {
         response.IsSuccessStatusCode.Should().Be(true);
         response.StatusCode.Should().Be(expectedStatusCode);
     }
 
-    public async Task ResponseIsFailAsync(
+    public async Task IsFailAsync(
         HttpResponseMessage response,
         HttpStatusCode expectedStatusCode = HttpStatusCode.BadRequest,
         params Error[] expectedErrors)

@@ -14,8 +14,8 @@ public class ReportsServiceTests
 {
     private readonly Mock<IRequestValidator> _requestValidator = new();
     private readonly Mock<IValidator<ReportContract>> _reportRequestValidator = new();
-    private readonly Mock<IArrivalRepository> _arrivalRepository = new();
-    private readonly Mock<IEmployeeRepository> _employeeRepository = new();
+    private readonly Mock<IDbContext> _dbContext = new();
+    private readonly Mock<IEmployeeRepository> _employeeRepo = new();
 
     private readonly ReportsService _sut;
 
@@ -24,15 +24,15 @@ public class ReportsServiceTests
         _sut = new ReportsService(
             _requestValidator.Object,
             _reportRequestValidator.Object,
-            _arrivalRepository.Object,
-            _employeeRepository.Object);
+            _dbContext.Object);
     }
 
     [Test]
     public async Task WithEmployeeNotFoundInDatabaseById_ThrowsException()
     {
         // Arrange
-        _employeeRepository
+        _dbContext.Setup(x => x.EmployeeRepo).Returns(_employeeRepo.Object);
+        _employeeRepo
             .Setup(x => x.GetSingleOrDefaultAsync(It.IsAny<int>()))
             .ThrowsAsync(new ValidatorAppException(
                 new AppError(TestsConstants.ErrorCodes.ValidationError,

@@ -13,19 +13,16 @@ public class ReportsService : IReportsService
 {
     private readonly IRequestValidator _requestValidator;
     private readonly IValidator<ReportContract> _reportRequestValidator;
-    private readonly IArrivalRepository _arrivalRepository;
-    private readonly IEmployeeRepository _employeeRepository;
+    private readonly IDbContext _dbContext;
 
     public ReportsService(
         IRequestValidator requestValidator,
         IValidator<ReportContract> reportRequestValidator,
-        IArrivalRepository arrivalRepository,
-        IEmployeeRepository employeeRepository)
+        IDbContext dbContext)
     {
         _requestValidator = requestValidator;
         _reportRequestValidator = reportRequestValidator;
-        _arrivalRepository = arrivalRepository;
-        _employeeRepository = employeeRepository;
+        _dbContext = dbContext;
     }
 
     public async Task CreateReportsAsync(IEnumerable<ReportContract> request)
@@ -37,13 +34,13 @@ public class ReportsService : IReportsService
             await ValidateEmployeeExistsInDatabaseAsync(report.EmployeeId);
 
             // TODO: Bulk insert instead of foreach!
-            await _arrivalRepository.CreateAsync(report.EmployeeId, report.When);
+            await _dbContext.ArrivalRepo.CreateAsync(report.EmployeeId, report.When);
         }
     }
 
     private async Task ValidateEmployeeExistsInDatabaseAsync(int employeeId)
     {
-        var employeeInDb = await _employeeRepository.GetSingleOrDefaultAsync(employeeId);
+        var employeeInDb = await _dbContext.EmployeeRepo.GetSingleOrDefaultAsync(employeeId);
 
         if (employeeInDb == null)
         {

@@ -11,16 +11,16 @@ public class ArrivalsService : IArrivalsService
 {
     private readonly IRequestValidator _requestValidator;
     private readonly IValidator<ArrivalRequestContract> _arrivalsRequestValidator;
-    private readonly IArrivalRepository _arrivalRepository;
+    private readonly IDbContext _dbContext;
 
     public ArrivalsService(
         IRequestValidator requestValidator,
         IValidator<ArrivalRequestContract> arrivalsRequestValidator,
-        IArrivalRepository arrivalRepository)
+        IDbContext dbContext)
     {
         _requestValidator = requestValidator;
         _arrivalsRequestValidator = arrivalsRequestValidator;
-        _arrivalRepository = arrivalRepository;
+        _dbContext = dbContext;
     }
 
     public async Task<Page<ArrivalResponseContract>> GetArrivalsAsync(ArrivalRequestContract request)
@@ -29,7 +29,7 @@ public class ArrivalsService : IArrivalsService
 
         var requestDomain = request.ToDomainModel();
 
-        var result = await _arrivalRepository.GetAllAsync(
+        var result = await _dbContext.ArrivalRepo.GetAllAsync(
             requestDomain.FromDate,
             requestDomain.ToDate,
             requestDomain.Order,

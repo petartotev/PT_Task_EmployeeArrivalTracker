@@ -13,10 +13,10 @@ public class DateArrivalRuleValidatorTests
     }
 
     [Test]
-    public async Task WithDateDuringToday_ReturnsSuccess([Values(1, 1 * 60, 23 * 60, 23 * 60 + 59)] int minutesAfterMidnightToday)
+    public async Task WithDateDuringToday_ReturnsSuccess([Values(1, 1 * 60, 23 * 60, 23 * 60 + 59)] int minutesAfterMidnightTonight)
     {
         // Arrange & Act
-        var validationResult = await _sut.ValidateAsync(DateTime.Today.AddMinutes(minutesAfterMidnightToday));
+        var validationResult = await _sut.ValidateAsync(DateTime.Today.AddMinutes(minutesAfterMidnightTonight));
 
         // Assert
         validationResult.IsValid.Should().BeTrue();

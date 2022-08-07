@@ -1,3 +1,26 @@
+kubectl delete service webappserver-clusterip-service
+kubectl delete service webappserver-loadbalancer-service
+kubectl delete service webappserver-nodeport-service
+kubectl delete service webappserver
+kubectl delete deployment webappserver-deployment
+kubectl delete service webappclient-clusterip-service
+kubectl delete service webappclient-nodeport-service
+kubectl delete deployment webappclient-deployment
+kubectl delete service ingress-nginx-controller-admission --namespace=ingress-nginx
+kubectl delete service ingress-nginx-controller --namespace=ingress-nginx
+kubectl delete deployment ingress-nginx-controller --namespace=ingress-nginx
+
+docker image rm <docker-hub-id>/webappserverimage
+docker image rm webappserverimage
+
+docker build -t <docker-hub-id>/webappserverimage .
+docker push <docker-hub-id>/webappserverimage
+
+kubectl apply -f webappclient-deployment.yaml
+kubectl apply -f webappserver-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/aws/deploy.yaml
+kubectl apply -f webappserver-ingress-service.yaml
+
 ######################################## COMMON ########################################
 
 # DOCKER REMOVE
@@ -26,15 +49,21 @@ docker run -p 3000:3000 --name webappclientcontainer -d <docker-hub-id>/webappcl
 
 kubectl delete service webappserver-clusterip-service
 kubectl delete service webappserver-loadbalancer-service
+kubectl delete service webappserver-nodeport-service
+kubectl delete service webappserver
 kubectl delete deployment webappserver-deployment
 kubectl delete service webappclient-clusterip-service
 kubectl delete service webappclient-nodeport-service
 kubectl delete deployment webappclient-deployment
+kubectl delete service ingress-nginx-controller-admission --namespace=ingress-nginx
+kubectl delete service ingress-nginx-controller --namespace=ingress-nginx
+kubectl delete deployment ingress-nginx-controller --namespace=ingress-nginx
 
 # KUBERNETES CREATE
 
 kubectl apply -f webappclient-deployment.yaml
 kubectl apply -f webappserver-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/aws/deploy.yaml
 kubectl apply -f webappserver-ingress-service.yaml
 
 # KUBERNETES CHECK`

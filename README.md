@@ -24,6 +24,10 @@
 
 ![WebAppServer Arcihtecture](res/Images/WebAppServer_Architecture.jpg)
 
+## Solution Kubernetes Architecture
+
+![Solution Kubernetes Arcihtecture](res/Images/Solution_Kubernetes_Architecture.jpg)
+
 ---
 
 ## Solution Startup

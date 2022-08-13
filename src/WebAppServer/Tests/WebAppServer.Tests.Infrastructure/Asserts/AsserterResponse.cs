@@ -17,8 +17,20 @@ public class AsserterResponse
 
     public async Task IsFailAsync(
         HttpResponseMessage response,
-        HttpStatusCode expectedStatusCode = HttpStatusCode.BadRequest,
-        params Error[] expectedErrors)
+        HttpStatusCode expectedStatusCode,
+        Error expectedError)
+    {
+        response.IsSuccessStatusCode.Should().Be(false);
+        response.StatusCode.Should().Be(expectedStatusCode);
+        var result = await response.Content.ReadAsStringAsync();
+        var actualError = Json.Deserialize<Error>(result);
+        actualError.Should().BeEquivalentTo(expectedError);
+    }
+
+    public async Task IsFailAsync(
+        HttpResponseMessage response,
+        HttpStatusCode expectedStatusCode,
+        Error[] expectedErrors)
     {
         response.IsSuccessStatusCode.Should().Be(false);
         response.StatusCode.Should().Be(expectedStatusCode);

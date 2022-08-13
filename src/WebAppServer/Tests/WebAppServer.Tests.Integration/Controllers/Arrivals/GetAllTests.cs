@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.WebUtilities;
 using WebAppServer.Api.Extensions;
 using WebAppServer.Tests.Infrastructure.Tests;
+using WebAppServer.V1.Contracts.Common;
 using static WebAppServer.Tests.Infrastructure.Constants.TestsConstants;
 
 namespace WebAppServer.Tests.Integration.Controllers.Arrivals;
 
-[TestFixture]
 public class GetAllTests : BaseTests
 {
     // ==================== Positive Scenarios ====================
@@ -49,8 +49,12 @@ public class GetAllTests : BaseTests
         await Assert.Response.IsFailAsync(
             response,
             System.Net.HttpStatusCode.BadRequest,
-            ErrorCodes.ValidationError
-            .AsError(string.Format(ErrorMessages.RequestValidation.DateProvidedMustBeTodayOrInThePast, "'toDate' and 'fromDate'")));
+            new Error[]
+            {
+                ErrorCodes.ValidationError
+                .AsError(string.Format(ErrorMessages.RequestValidation.DateProvidedMustBeTodayOrInThePast, "'toDate' and 'fromDate'"))
+            });
+            
     }
 
     [Test]
@@ -67,7 +71,11 @@ public class GetAllTests : BaseTests
         await Assert.Response.IsFailAsync(
             response,
             System.Net.HttpStatusCode.BadRequest,
-            ErrorCodes.ValidationError.AsError(string.Format(ErrorMessages.RequestValidation.DateFromProvidedMustBeBeforeDateTo, "FromDate", "ToDate")));
+            new Error[]
+            {
+                ErrorCodes.ValidationError
+                .AsError(string.Format(ErrorMessages.RequestValidation.DateFromProvidedMustBeBeforeDateTo, "FromDate", "ToDate"))
+            });
     }
 
     // ==================== Helper Methods ====================

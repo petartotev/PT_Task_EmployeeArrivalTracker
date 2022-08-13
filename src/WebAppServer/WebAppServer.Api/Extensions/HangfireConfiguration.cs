@@ -1,5 +1,6 @@
 ﻿using Hangfire;
 using Hangfire.SqlServer;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace WebAppServer.Api.Extensions;
 

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Http;
 using WebAppServer.Api.Exceptions;
 using WebAppServer.Common.Helpers;
 using WebAppServer.Domain.Exceptions;

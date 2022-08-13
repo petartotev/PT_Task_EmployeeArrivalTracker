@@ -1,4 +1,4 @@
 {
-    "webserver_url": "http://arrivaltracker.net/api/",
-    "webserver_url_arrivals": "http://arrivaltracker.net/api/arrivals"
+    "webserver_url": "http://localhost:5168/api/",
+    "webserver_url_arrivals": "http://localhost:5168/api/arrivals"
 }

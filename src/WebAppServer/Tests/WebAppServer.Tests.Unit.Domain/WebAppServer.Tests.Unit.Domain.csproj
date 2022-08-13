@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\WebAppServer.Domain\WebAppServer.Domain.csproj" />
     <ProjectReference Include="..\WebAppServer.Tests.Infrastructure\WebAppServer.Tests.Infrastructure.csproj" />
   </ItemGroup>
 
